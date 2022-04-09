@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+import { Products } from './../Models/products';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
@@ -9,9 +11,9 @@ export class ProductsService {
 
   constructor(private httpClient:HttpClient) { }
 
-  getProducts()
+  getProducts() :Observable <Products[]>
   {
-    return this.httpClient.get(`${environment.APIBaseURL}/products`);
+    return this.httpClient.get<Products[]>(`${environment.APIBaseURL}/products`);
   }
 
   getProductsByCatID(catID:number)

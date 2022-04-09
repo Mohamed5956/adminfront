@@ -21,12 +21,11 @@
   </thead>
   <tbody>
 
-    <p>
-      {{catList}}
-    </p>
-    <ng-container *ngFor="let cat of catList let i=index;  ">
-        <td>{{i+1}}</td>
-        <td>{{cat.name | uppercase}}</td>
+
+    <ng-container *ngFor="let cat of catList  let i=index">
+      <tr>
+      <td>{{i+1}}</td>
+        <td>{{ cat.name | uppercase}}</td>
         <td>
           <img class="first" Boxshadow="red" [src]="cat.image">
         </td>
@@ -37,7 +36,7 @@
             EditProduct </button></td>
         <!-- <td><button type="button" class="btn btn-danger" (click)="deleteproduct(prd.id)"> delete </button></td> -->
         <td> <button type=" button " class=" btn btn-danger" [routerLink]="['/delete',cat.id]">Delete</button></td>
-
+        </tr>
 
     </ng-container>
   </tbody>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Category } from 'src/app/Models/category';
 import { CategoryService } from 'src/app/Services/category.service';
@@ -8,21 +8,24 @@ import { CategoryService } from 'src/app/Services/category.service';
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css']
 })
-export class CategoryComponent implements OnInit {
+export class CategoryComponent implements OnInit  {
 
-  catList:Category[];
+  catList:Category[]=[];
   constructor(
     private categoryService:CategoryService,
-    private router:Router,) {
-      this.catList = [];
+    private router:Router) {
+      //this.catList = [];
     }
 
-  ngOnInit(): void {
-    this.categoryService.getAllCategories().subscribe(catList => {
-      this.catList = catList;
-      JSON.stringify(catList);
-      console.log(catList);
+
+    ngOnInit(): void {
+    this.categoryService.getAllCategories().subscribe(e => {
+      this.catList = e;
+      //JSON.stringify(catList);
+      console.log(e);
     });
+
+
   }
 
   // getdata() {

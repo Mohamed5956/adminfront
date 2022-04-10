@@ -21,17 +21,26 @@ export class CategoryComponent implements OnInit  {
     ngOnInit(): void {
     this.categoryService.getAllCategories().subscribe(e => {
       this.catList = e;
-      //JSON.stringify(catList);
+      
       console.log(e);
     });
-
-
   }
 
-  // getdata() {
-  //   this.categoryService.getAllCategories().subscribe({
-  //     next: (data) => { this.catList = data },
-  //   });
-  // }
+  getdata() {
+    this.categoryService.getAllCategories().subscribe({
+      next: (data) => { this.catList = data },
+    });
+  }
+
+  deleteproduct(catID: number) {
+    this.categoryService.deleteCategory(catID).subscribe(
+      {
+        next: () => {
+          this.getdata();
+          alert("the product is deleted successfully");
+        }
+      });
+  }
+
 
 }

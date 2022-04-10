@@ -38,13 +38,11 @@ export class CategoryService {
     return this.httpClient.put(`${environment.APIBaseURL}/categories`, JSON.stringify(newCat), this.httpOptions)
   }
 
-  updateProduct(newCat: Category): Observable<Category> {
+  updateCategory(newCat: Category): Observable<Category> {
     return this.httpClient.put<Category>(`${environment.APIBaseURL}/categories/${newCat.id}`, JSON.stringify(newCat), this.httpOptions)
-
   }
 
-  deleteProduct(catID: number): Observable<{}> {
-    const url = `${environment.APIBaseURL}/categories/${catID}`;
+  deleteCategory(catID: number): Observable<{}> {
     return this.httpClient.delete(`${environment.APIBaseURL}/categories/${catID}`, this.httpOptions)
   }
 

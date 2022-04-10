@@ -14,6 +14,9 @@ import { OrdersComponent } from './Components/orders/orders.component';
 import { FormsModule } from '@angular/forms';
 import { AllproductsComponent } from './Components/Admin/products/allproducts/allproducts.component';
 import { LayoutComponent } from './Components/layout/layout.component';
+import { AddCategoryComponent } from './Components/category/add-category/add-category.component';
+import { EditCategoryComponent } from './Components/category/edit-category/edit-category.component';
+import { ViewOrderComponent } from './Components/orders/view-order/view-order.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,9 @@ import { LayoutComponent } from './Components/layout/layout.component';
     OrdersComponent,
     AllproductsComponent,
     LayoutComponent,
+    AddCategoryComponent,
+    EditCategoryComponent,
+    ViewOrderComponent,
   ],
   imports: [
     BrowserModule,

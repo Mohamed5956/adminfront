@@ -1,1 +1,44 @@
-<p>category works!</p>
+<!-- category -->
+
+
+
+<br>
+
+<!-- here the table -->
+<h3 style="text-align: center;">Categories</h3>
+<table class="table m-2">
+  <thead>
+    <tr class="bg-dark text-light">
+      <th scope="col">No.</th>
+      <th scope="col">Name</th>
+      <th scope="col">image</th>
+      <th scope="col">slug</th>
+      <th scope="col">Description</th>
+      <th scope="col">Edit Product</th>
+      <th scope="col">Delete Product </th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+    <p>
+      {{catList}}
+    </p>
+    <ng-container *ngFor="let cat of catList let i=index;  ">
+        <td>{{i+1}}</td>
+        <td>{{cat.name | uppercase}}</td>
+        <td>
+          <img class="first" Boxshadow="red" [src]="cat.image">
+        </td>
+        <td>{{cat.slug}}</td>
+        <td>{{cat.description}}</td>
+
+        <td><button [disabled]="" type="button" class="btn btn-success" [routerLink]="['/newProduct',cat.id]">
+            EditProduct </button></td>
+        <!-- <td><button type="button" class="btn btn-danger" (click)="deleteproduct(prd.id)"> delete </button></td> -->
+        <td> <button type=" button " class=" btn btn-danger" [routerLink]="['/delete',cat.id]">Delete</button></td>
+
+
+    </ng-container>
+  </tbody>
+</table>

@@ -17,6 +17,7 @@ import { LayoutComponent } from './Components/layout/layout.component';
 import { AddCategoryComponent } from './Components/category/add-category/add-category.component';
 import { EditCategoryComponent } from './Components/category/edit-category/edit-category.component';
 import { ViewOrderComponent } from './Components/orders/view-order/view-order.component';
+import { OrderHistoryComponent } from './Components/orders/order-history/order-history.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ViewOrderComponent } from './Components/orders/view-order/view-order.co
     AddCategoryComponent,
     EditCategoryComponent,
     ViewOrderComponent,
+    OrderHistoryComponent,
   ],
   imports: [
     BrowserModule,

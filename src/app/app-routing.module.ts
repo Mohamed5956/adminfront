@@ -8,6 +8,7 @@ import { CategoryComponent } from './Components/category/category.component';
 import { EditCategoryComponent } from './Components/category/edit-category/edit-category.component';
 import { LayoutComponent } from './Components/layout/layout.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
+import { OrderHistoryComponent } from './Components/orders/order-history/order-history.component';
 import { OrdersComponent } from './Components/orders/orders.component';
 import { ViewOrderComponent } from './Components/orders/view-order/view-order.component';
 
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path:'edit-category/:cid',component:EditCategoryComponent},
   {path:'orders', component:OrdersComponent},
   {path:'orders/:oid',component:ViewOrderComponent},
+  {path:'order-history',component:OrderHistoryComponent}
   ]
   },
   {path:'**', component:NotFoundComponent},

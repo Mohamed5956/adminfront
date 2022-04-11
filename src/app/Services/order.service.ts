@@ -23,6 +23,10 @@ export class OrderService {
     return this.httpClient.get<Orders[]>(`${environment.APIBaseURL}/orders`);
   }
 
+  getFinishedOrders(): Observable <Orders[]> {
+    return this.httpClient.get<Orders[]>(`${environment.APIBaseURL}/order-history`);
+  }
+
   getOrderByID(orderID: number): Observable<Orders>{
       return this.httpClient.get<Orders>(`${environment.APIBaseURL}/orders/${orderID}`);
   }

@@ -1,0 +1,28 @@
+<h1>Edit Category</h1>
+<form #form="ngForm" (ngSubmit)="updateCategory()">
+  <fieldset>
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control" #categoryName="ngModel" [(ngModel)]="Category.name"
+        [ngModelOptions]="{standalone:true}">
+    </div>
+
+    <div class="form-group">
+    <label>Slug</label>
+    <input type="text" class="form-control" #categorySlug="ngModel" [(ngModel)]="Category.slug"
+      [ngModelOptions]="{standalone:true}">
+    </div>
+
+    <div class="form-group">
+    <label>Description</label>
+    <input type="text" class="form-control" #categoryDescription="ngModel" [(ngModel)]="Category.description"
+      [ngModelOptions]="{standalone:true}">
+    </div>
+
+  </fieldset>
+
+  <br>
+  <input type="submit" value="submit" class="btn btn-primary" [disabled]="form.invalid">
+  <br> <br>
+</form>
+<br>

@@ -1,0 +1,31 @@
+<!-- <button class="btn-btn success m-2"  (click)="addProduct()">Add Product</button> -->
+
+<h1> Add Category</h1>
+
+<form (ngSubmit)="addCategory()" method="POST">
+  <div class="mb-3">
+    <label for="catName" class="form-label">Name</label>
+    <input type="text" [(ngModel)]="newCat.name"
+      class="form-control" name="catName" id="catName" >
+  </div>
+
+  <div class="mb-3">
+    <label for="catSlug" class="form-label">Slug</label>
+    <input type="text" [(ngModel)]="newCat.slug"
+      class="form-control" name="catSlug" id="catSlug" >
+  </div>
+
+  <div class="mb-3">
+    <label for="catDescription" class="form-label">Description</label>
+    <input type="text" [(ngModel)]="newCat.description"
+      class="form-control" name="catDescription" id="catDescription" >
+  </div>
+
+  <div class="form-group">
+    <input type="file" (change)="onSelectedFile($event)">
+  </div>
+
+  <button type="submit" class="btn btn-success">Submit</button>
+
+</form>
+

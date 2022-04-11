@@ -1,1 +1,44 @@
-<p>orders works!</p>
+
+    <div class="card">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>New Orders
+                                <a href="/order-history" class="btn btn-warning float-end">Order History</a>
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Order Date</th>
+                                        <th>Tracking Number</th>
+                                        <th>Total Price</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <ng-container *ngFor="let item of orderList">
+                                        <tr>
+                                          <!-- date('d-m-Y' , strtotime($item->created_at)) -->
+                                            <td>{{item.created_at | date}}</td>
+                                            <td>{{item.tracking_no}}</td>
+                                            <td>{{item.total_price}}</td>
+                                            <td *ngIf="item.status == 0 ? 'pending' : 'completed  ' ">{{ item.status }}</td>
+                                            <td>
+                                                <a [routerLink]="['/orders',item.id]"
+                                                    class="btn btn-primary">View</a>
+                                            </td>
+                                        </tr>
+                                      </ng-container>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

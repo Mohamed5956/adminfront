@@ -32,10 +32,9 @@
         <td>{{cat.slug}}</td>
         <td>{{cat.description}}</td>
 
-        <td><button [disabled]="" type="button" class="btn btn-success" [routerLink]="['/newProduct',cat.id]">
-            EditProduct </button></td>
-        <!-- <td><button type="button" class="btn btn-danger" (click)="deleteproduct(prd.id)"> delete </button></td> -->
-        <td> <button type=" button " class=" btn btn-danger" [routerLink]="['/delete',cat.id]">Delete</button></td>
+        <td><button [disabled]="" type="button" class="btn btn-success" [routerLink]="['/edit-category',cat.id]">
+            Edit </button></td>
+        <td><button type="button" class="btn btn-danger" (click)="deleteproduct(cat.id)"> delete </button></td>
         </tr>
 
     </ng-container>

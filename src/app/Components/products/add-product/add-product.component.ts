@@ -14,6 +14,7 @@ export class AddProductComponent implements OnInit {
 
   product:Products={} as Products;
   categorylist:Category[]=[];
+  add:number=0;
 
   constructor(private productservice:ProductsService,private router:Router , private categoryservice:CategoryService) { }
 
@@ -30,9 +31,11 @@ export class AddProductComponent implements OnInit {
     {
     this.productservice.addproduct(this.product).subscribe(
       {next:(data)=>{
+
+        this.add=1;
         console.log(data);
 
-      this.router.navigate(['/products']);
+      this.router.navigate(['/products/add']);
       }
 
      });

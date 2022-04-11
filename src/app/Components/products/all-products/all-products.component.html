@@ -23,7 +23,6 @@
       <th scope="col">Name</th>
       <th scope="col">image</th>
       <th scope="col">Small Description</th>
-      <th scope="col">View</th>
       <th scope="col">Edit</th>
       <th scope="col">Delete</th>
     </tr>
@@ -39,7 +38,6 @@
 
         <td>{{product.small_description}}</td>
 
-        <td> <button type=" button " class=" btn btn-danger" [routerLink]="['/products',product.id]">View</button></td>
 
         <td>
           <button [disabled]="" type="button" class="btn btn-success"
@@ -49,9 +47,6 @@
 
 
          <td><button type="button " class=" btn btn-warning" (click)="deleteproduct(product.id)" >Delete</button></td>
-
-
-
         </tr>
 
     </ng-container>

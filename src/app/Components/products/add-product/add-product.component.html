@@ -1,5 +1,13 @@
 <h2> Add Product</h2>
 
+<ng-container *ngIf="add==1">
+  <div class="alert alert-success">
+    added sucessfully
+  </div>
+
+</ng-container>
+
+
 <form #productForm="ngForm"  method="POST" (ngSubmit)="Add()" >
   <div class="mb-3">
     <label for="name" class="form-label">Name</label>

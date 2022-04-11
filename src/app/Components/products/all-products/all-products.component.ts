@@ -33,7 +33,7 @@ export class AllProductsComponent implements OnInit {
    }
 
 
-    /*getproducts()
+    getproducts()
     {
 
     this.productservice.getproducstbycategoryID(this.categoryId).subscribe(products=>
@@ -44,14 +44,19 @@ export class AllProductsComponent implements OnInit {
     });
 
     }
+    
 
 
       deleteproduct(productId:number)
       {
        console.log(productId);
-      this.productservice.deleteproduct(productId).subscribe(products=>{
-        this.products=products;
+       var result = confirm("Are you sure you want to delete?");
+       if (result==true) {
+       this.productservice.deleteproduct(productId).subscribe(products=>{
+         this.products=products;
       } );
-      }*/
+      }
+
+        }
 
 }

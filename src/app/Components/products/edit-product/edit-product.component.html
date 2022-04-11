@@ -1,0 +1,104 @@
+<h2> Edit Product</h2>
+
+<form #productForm="ngForm"  method="POST" (ngSubmit)="Edit()" enctype="multipart/form-data" >
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" [(ngModel)]="product.name"
+      class="form-control" name="name" id="name" required  #name="ngModel">
+      <div [hidden]="name.valid || name.untouched" class="alert alert-warning">
+        Name is Required
+      </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="catSlug" class="form-label">Slug</label>
+    <input type="text" [(ngModel)]="product.slug"
+      class="form-control" name="slug" id="catSlug" required #slug="ngModel">
+      <div [hidden]="slug.valid||slug.untouched" class="alert alert-warning">
+        Slug is Required
+      </div>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="shortdescription" class="form-label">Short Description</label>
+    <textarea name="small_description" class="form-control" [(ngModel)]="product.small_description"
+    id="shortdescription"  required #shortdescription="ngModel"></textarea>
+      <div [hidden]="shortdescription.valid||shortdescription.untouched" class="alert alert-warning">
+        Short Description is Required
+      </div>
+  </div>
+
+
+
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <textarea name="description" class="form-control" [(ngModel)]="product.description"
+    id="description"  required #description="ngModel"></textarea>
+      <div [hidden]="description.valid||description.untouched" class="alert alert-warning">
+        Description is Required
+      </div>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="category" class="form-label">Category</label>
+    <select class="form-control" name="category" [(ngModel)]="product.category_id" #category="ngModel"  required>
+      <ng-container *ngFor="let category of categorylist">
+        <option [value]="category.id">{{category.name}}</option>
+      </ng-container>
+    </select>
+      <div [hidden]="category.valid||category.untouched" class="alert alert-warning">
+        Category is Required
+      </div>
+  </div>
+
+
+
+
+  <div class="mb-3">
+    <label for="originalprice" class="form-label">Original Price</label>
+    <input type="number"  min=0 [(ngModel)]="product.original_price"
+      class="form-control" name="original_price" id="slug" required #originalprice="ngModel">
+      <div [hidden]="originalprice.valid|| originalprice.untouched" class="alert alert-warning">
+        Original Price is Required
+      </div>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="sellingprice" class="form-label">Selling Price</label>
+    <input type="number"  min=0 [(ngModel)]="product.selling_price"
+      class="form-control" name="selling_price" id="sellingprice" required #sellingprice="ngModel">
+      <div [hidden]="sellingprice.valid|| sellingprice.untouched" class="alert alert-warning">
+        Selling Price is Required
+      </div>
+  </div>
+
+
+
+  <div class="mb-3">
+    <label for="quantity" class="form-label">Quantity</label>
+    <input type="number"  min=0 [(ngModel)]="product.quantity"
+      class="form-control" name="quantity" id="sellingprice" required #quantity="ngModel">
+      <div [hidden]="quantity.valid|| quantity.untouched" class="alert alert-warning">
+        Quantity is Required
+      </div>
+  </div>
+
+
+
+      <div class="mb-3">
+      <label for="quantity" class="form-label">Picture</label>
+     <input type="file"  name="image" required id="file"  [(ngModel)]="product.image"  class="form-control"  #file="ngModel">
+     <div [hidden]="file.valid|| file.untouched" class="alert alert-warning">
+      Quantity is Required
+    </div>
+      </div>
+
+  <button [disabled]="productForm.invalid" type="submit" class="btn btn-success">Submit</button>
+
+</form>
+
+
+

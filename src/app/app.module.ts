@@ -19,6 +19,7 @@ import { ViewOrderComponent } from './Components/orders/view-order/view-order.co
 import { OrderHistoryComponent } from './Components/orders/order-history/order-history.component';
 import { AllProductsComponent } from './Components/products/all-products/all-products.component';
 import { AddProductComponent } from './Components/products/add-product/add-product.component';
+import { EditProductComponent } from './Components/products/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,8 @@ import { AddProductComponent } from './Components/products/add-product/add-produ
     OrderHistoryComponent,
     AllProductsComponent,
     AddProductComponent,
+    EditProductComponent,
+ 
   ],
   imports: [
     BrowserModule,

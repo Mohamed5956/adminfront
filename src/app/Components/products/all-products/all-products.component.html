@@ -4,7 +4,7 @@
 <div class="row">
   <div class="col">
   <label for="category" class="form-label">Search:</label>
-     <select [(ngModel)]="categoryId"  class="dropdown" >
+     <select [(ngModel)]="categoryId"  class="dropdown" (ngModelChange)="getproducts()">
           <option [value]="0">All</option>
           <option  *ngFor="let category of categories" [value]="category.id">
               {{category.name}}
@@ -13,7 +13,7 @@
   </div>
 
   <div class="col offset-7 ">
-    <a href="" class="btn btn-primary" [routerLink]="['/Products/Add']">Add Product</a>
+    <a href="" class="btn btn-primary" [routerLink]="['/products/add']">Add Product</a>
   </div>
 </div>
 <table class="table m-2 text-center">
@@ -43,12 +43,12 @@
 
         <td>
           <button [disabled]="" type="button" class="btn btn-success"
-          [routerLink]="['/editproducts',product.id]">
+          [routerLink]="['/products/edit',product.id]">
             Edit</button>
         </td>
 
 
-         <td><button type="button " class=" btn btn-warning" >Delete</button></td>
+         <td><button type="button " class=" btn btn-warning" (click)="deleteproduct(product.id)" >Delete</button></td>
 
 
 

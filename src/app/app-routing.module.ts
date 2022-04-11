@@ -12,6 +12,7 @@ import { OrdersComponent } from './Components/orders/orders.component';
 import { ViewOrderComponent } from './Components/orders/view-order/view-order.component';
 import { AddProductComponent } from './Components/products/add-product/add-product.component';
 import { AllProductsComponent } from './Components/products/all-products/all-products.component';
+import { EditProductComponent } from './Components/products/edit-product/edit-product.component';
 
 const routes: Routes = [
   {path:'',component:LayoutComponent,
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
   {path:'home',component:HomeComponent},
   {path:'products', component:AllProductsComponent},
-  {path:'Products/Add',component:AddProductComponent},
+  {path:'products/add',component:AddProductComponent},
+  {path:'products/edit/:id',component:EditProductComponent},
   {path:'getproducts/:id',component:AllProductsComponent},
   {path:'categories', component:CategoryComponent},
   {path:'add-category',component:AddCategoryComponent},

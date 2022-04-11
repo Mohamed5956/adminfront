@@ -23,11 +23,15 @@
                                 <tbody>
                                     <ng-container *ngFor="let item of orderList">
                                         <tr>
-                                          <!-- date('d-m-Y' , strtotime($item->created_at)) -->
                                             <td>{{item.created_at | date}}</td>
                                             <td>{{item.tracking_no}}</td>
                                             <td>{{item.total_price}}</td>
-                                            <td *ngIf="item.status == 0 ? 'pending' : 'completed  ' ">{{ item.status }}</td>
+                                            <ng-container *ngIf="item.status == 0">
+                                              <td>Pending</td>
+                                            </ng-container>
+                                            <ng-container *ngIf="item.status == 1">
+                                              <td>Completed</td>
+                                            </ng-container>
                                             <td>
                                                 <a [routerLink]="['/orders',item.id]"
                                                     class="btn btn-primary">View</a>

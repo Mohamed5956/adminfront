@@ -1,0 +1,59 @@
+
+<h3 style="text-align: center;">Products</h3>
+
+<div class="row">
+  <div class="col">
+  <label for="category" class="form-label">Search:</label>
+     <select [(ngModel)]="categoryId"  class="dropdown" >
+          <option [value]="0">All</option>
+          <option  *ngFor="let category of categories" [value]="category.id">
+              {{category.name}}
+          </option>
+      </select>
+  </div>
+
+  <div class="col offset-7 ">
+    <a href="" class="btn btn-primary" [routerLink]="['/Products/Add']">Add Product</a>
+  </div>
+</div>
+<table class="table m-2 text-center">
+  <thead>
+    <tr class="bg-dark text-light">
+      <th scope="col">No.</th>
+      <th scope="col">Name</th>
+      <th scope="col">image</th>
+      <th scope="col">Small Description</th>
+      <th scope="col">View</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let product of products  let i=index">
+      <tr>
+      <td>{{i+1}}</td>
+        <td>{{ product.name | uppercase}}</td>
+        <td>
+          <img class="first" Boxshadow="red" [src]="product.image">
+        </td>
+
+        <td>{{product.small_description}}</td>
+
+        <td> <button type=" button " class=" btn btn-danger" [routerLink]="['/products',product.id]">View</button></td>
+
+        <td>
+          <button [disabled]="" type="button" class="btn btn-success"
+          [routerLink]="['/editproducts',product.id]">
+            Edit</button>
+        </td>
+
+
+         <td><button type="button " class=" btn btn-warning" >Delete</button></td>
+
+
+
+        </tr>
+
+    </ng-container>
+  </tbody>
+</table>

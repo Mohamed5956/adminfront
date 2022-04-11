@@ -18,7 +18,6 @@ export class OrdersComponent implements OnInit {
   ngOnInit(): void {
     this.orderService.getPendingOrders().subscribe(e => {
       this.orderList = e;
-
       console.log(e);
     });
 

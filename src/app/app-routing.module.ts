@@ -22,7 +22,7 @@ const routes: Routes = [
   {path:'home',component:HomeComponent},
   {path:'login', component:AuthComponent},
   {path:'products', component:AllProductsComponent},
-  {path:'products/add',component:AddProductComponent},
+  {path:'product/add',component:AddProductComponent},
   {path:'products/edit/:id',component:EditProductComponent},
   {path:'getproducts/:id',component:AllProductsComponent},
   {path:'categories', component:CategoryComponent},

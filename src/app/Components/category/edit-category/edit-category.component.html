@@ -1,28 +1,38 @@
 <h1>Edit Category</h1>
-<form #form="ngForm" (ngSubmit)="updateCategory()">
+<form #Form="ngForm" (ngSubmit)="updateCategory()">
   <fieldset>
     <div class="form-group">
       <label>Name</label>
-      <input type="text" class="form-control" #categoryName="ngModel" [(ngModel)]="Category.name"
+      <input type="text" class="form-control" #categoryName="ngModel" [(ngModel)]="Category.name" required
         [ngModelOptions]="{standalone:true}">
+        <div [hidden]="categoryName.valid || categoryName.untouched" class="alert alert-warning">
+          Name is Required
+        </div>
     </div>
 
     <div class="form-group">
     <label>Slug</label>
-    <input type="text" class="form-control" #categorySlug="ngModel" [(ngModel)]="Category.slug"
+    <input type="text" class="form-control" #categorySlug="ngModel" [(ngModel)]="Category.slug" required
       [ngModelOptions]="{standalone:true}">
-    </div>
+      <div [hidden]="categorySlug.valid || categorySlug.untouched" class="alert alert-warning">
+        Slug is Required
+      </div>
+  </div>
 
-    <div class="form-group">
-    <label>Description</label>
-    <input type="text" class="form-control" #categoryDescription="ngModel" [(ngModel)]="Category.description"
-      [ngModelOptions]="{standalone:true}">
-    </div>
+
+  <div class="mb-3">
+    <label for="catDescription" class="form-label">Description</label>
+    <textarea name="catDescription" class="form-control" [(ngModel)]="Category.description"
+    id=""  required #catDescription="ngModel"></textarea>
+      <div [hidden]="catDescription.valid||catDescription.untouched" class="alert alert-warning">
+        Description is Required
+      </div>
+  </div>
 
   </fieldset>
 
   <br>
-  <input type="submit" value="submit" class="btn btn-primary" [disabled]="form.invalid">
+  <input [disabled]="Form.invalid" type="submit" value="submit" class="btn btn-primary" >
   <br> <br>
 </form>
 <br>

@@ -20,6 +20,7 @@ import { OrderHistoryComponent } from './Components/orders/order-history/order-h
 import { AllProductsComponent } from './Components/products/all-products/all-products.component';
 import { AddProductComponent } from './Components/products/add-product/add-product.component';
 import { EditProductComponent } from './Components/products/edit-product/edit-product.component';
+import { AuthComponent } from './Components/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { EditProductComponent } from './Components/products/edit-product/edit-pr
     AllProductsComponent,
     AddProductComponent,
     EditProductComponent,
+    AuthComponent,
  
   ],
   imports: [

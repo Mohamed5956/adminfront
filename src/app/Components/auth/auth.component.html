@@ -1,0 +1,65 @@
+
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" (ngSubmit)="login()">
+          <div class="mb-3">
+            <label for="email" class="form-label">Name</label>
+            <input type="email" name="email"  [(ngModel)]="auth.email" class="form-control"  aria-describedby="emailHelp" required>
+            <div  *ngIf="!(auth.email)" class="text-danger">
+              *Email is required
+              </div>
+
+              <div  *ngIf="(auth.email)" class="text-success">
+                Ok
+                </div>
+
+          </div>
+          <div class="mb-3">
+            <label for="prodname" class="form-label">Password</label>
+            <input type="text" name="password"  [(ngModel)]="auth.password" class="form-control"  aria-describedby="emailHelp" required>
+            <div  *ngIf="!(auth.password)" class="text-danger">
+              *password is required
+              </div>
+
+              <div  *ngIf="(auth.password)" class="text-success">
+                Ok
+                </div>
+
+          </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">login</button>
+      </div>
+         </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

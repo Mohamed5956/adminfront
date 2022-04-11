@@ -2,6 +2,7 @@
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './Components/Admin/home/home.component';
+import { AuthComponent } from './Components/auth/auth.component';
 import { AddCategoryComponent } from './Components/category/add-category/add-category.component';
 import { CategoryComponent } from './Components/category/category.component';
 import { EditCategoryComponent } from './Components/category/edit-category/edit-category.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   children:[
   {path:'',redirectTo:'/home',pathMatch:'full'},
   {path:'home',component:HomeComponent},
+  {path:'login', component:AuthComponent},
   {path:'products', component:AllProductsComponent},
   {path:'products/add',component:AddProductComponent},
   {path:'products/edit/:id',component:EditProductComponent},
@@ -31,7 +33,7 @@ const routes: Routes = [
   {path:'order-history',component:OrderHistoryComponent}
   ]
   },
-  {path:'**', component:NotFoundComponent},
+  {path:'**', component:NotFoundComponent}
 ];
 
 @NgModule({

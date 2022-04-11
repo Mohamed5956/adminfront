@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Category } from 'src/app/Models/category';
 import { CategoryService } from 'src/app/Services/category.service';
 import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2';
 // import {ImageUploadService} from './image-upload-service';
 
 @Component({
@@ -29,7 +30,13 @@ export class AddCategoryComponent implements OnInit {
     image.append('image',this.selectedImage,this.selectedImage.name);
     console.log(image);
     this.categoryService.addCategory(this.newCat).subscribe({
-          next:(prd)=>{this.router.navigate(['/categories']);},
+          next:(prd)=>{
+            Swal.fire(
+              'Added Succesfully!',
+              'You clicked the button!',
+              'success'
+            );
+            this.router.navigate(['/categories']);},
           error:(err)=>{alert('error occured')}
         });
   }

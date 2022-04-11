@@ -2,6 +2,8 @@ import { Component, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Category } from 'src/app/Models/category';
 import { CategoryService } from 'src/app/Services/category.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-category',
@@ -9,7 +11,6 @@ import { CategoryService } from 'src/app/Services/category.service';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit  {
-
   catList:Category[]=[];
   constructor(
     private categoryService:CategoryService,
@@ -21,7 +22,7 @@ export class CategoryComponent implements OnInit  {
     ngOnInit(): void {
     this.categoryService.getAllCategories().subscribe(e => {
       this.catList = e;
-      
+
       console.log(e);
     });
   }
@@ -37,7 +38,11 @@ export class CategoryComponent implements OnInit  {
       {
         next: () => {
           this.getdata();
-          alert("the product is deleted successfully");
+          Swal.fire(
+            'Product Deleted!',
+            'click the button',
+            'success'
+          );
         }
       });
   }

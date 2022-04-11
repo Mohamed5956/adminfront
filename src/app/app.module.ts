@@ -40,7 +40,7 @@ import { OrderHistoryComponent } from './Components/orders/order-history/order-h
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

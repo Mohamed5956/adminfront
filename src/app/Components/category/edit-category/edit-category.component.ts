@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/Models/category';
 import { CategoryService } from 'src/app/Services/category.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-category',
@@ -40,7 +41,11 @@ export class EditCategoryComponent implements OnInit {
   updateCategory(){
     this.CategoryService.updateCategory(this.Category).subscribe({
       next:(res)=>{
-          alert(" the category is updated successfully");
+          Swal.fire(
+            'The category is updated successfully!',
+            'click the button',
+            'success'
+          );
           this.router.navigate(['/categories']);
           },
         error:(err)=>{console.log(err)}

@@ -37,9 +37,9 @@ export class AddCategoryComponent implements OnInit {
   }
 
   addCategory(){
-    const image = new FormData() ;
-    image.append('image',this.selectedImage,this.selectedImage.name);
-    console.log(image);
+    // const image = new FormData() ;
+    // image.append('image',this.selectedImage,this.selectedImage.name);
+    // console.log(image);
     this.categoryService.addCategory(this.newCat).subscribe({
           next:(cat)=>{
             console.log(cat);
@@ -55,6 +55,7 @@ export class AddCategoryComponent implements OnInit {
 
   onSelectedFile(event:any){
     this.selectedImage=<File>event.target.files[0];
+    console.log(this.selectedImage);
   }
 
 

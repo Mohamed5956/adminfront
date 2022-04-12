@@ -11,14 +11,44 @@ export class ProductsService {
 
   constructor(private httpClient:HttpClient) { }
 
+
   getProducts() :Observable <Products[]>
   {
     return this.httpClient.get<Products[]>(`${environment.APIBaseURL}/products`);
   }
 
-  getProductsByCatID(catID:number)
+
+  getproductbyID(id:number):Observable<Products>
   {
-    return this.httpClient.get(`${environment.APIBaseURL}/products?categoryID`);
+    return this.httpClient.get<Products>(`${environment.APIBaseURL}/products/${id}`);  //return object
+
   }
+
+  addproduct(product:Products) :Observable<Products>
+  {
+    return this.httpClient.post<Products>(`${environment.APIBaseURL}/products`,product);
+  }
+
+
+  getproducstbycategoryID(categoryId:number):Observable<Products[]>
+  {
+    if(categoryId==0)
+    return this.getProducts();
+    return this.httpClient.get<Products[]>(`${environment.APIBaseURL}/getproducts/${categoryId}`);
+
+  }
+
+
+  editproduct(product:Products) :Observable<Products>
+  {
+    return this.httpClient.put<Products>(`${environment.APIBaseURL}/products/${product.id}`,product);
+  }
+
+
+  deleteproduct(productId:number): Observable<Products[]>
+  {
+    return this.httpClient.delete<Products[]>(`${environment.APIBaseURL}/products/${productId}`);
+  }
+
 
 }

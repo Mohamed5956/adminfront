@@ -1,3 +1,11 @@
 
-      <router-outlet></router-outlet>
-    
+<ng-container *ngIf="login_user">
+  <router-outlet></router-outlet>
+</ng-container>
+
+<ng-container *ngIf="!login_user">
+  <app-auth></app-auth>
+</ng-container>
+
+
+

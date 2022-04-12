@@ -1,42 +1,49 @@
-<!-- <button class="btn-btn success m-2"  (click)="addProduct()">Add Product</button> -->
 
 <h1> Add Category</h1>
 
-<form #catForm="ngForm" (ngSubmit)="addCategory()" method="POST">
+<form [formGroup]="CategoryFormGroup" (ngSubmit)="addCategory()"  enctype="multipart/form-data">
   <div class="mb-3">
-    <label for="catName" class="form-label">Name</label>
-    <input type="text" [(ngModel)]="newCat.name"
-      class="form-control" name="catName" id="catName" required
-      #catName="ngModel">
-      <div [hidden]="catName.valid || catName.untouched" class="alert alert-warning">
-        Name is Required
-      </div>
-  </div>
-
-  <div class="mb-3">
-    <label for="catSlug" class="form-label">Slug</label>
-    <input type="text" [(ngModel)]="newCat.slug"
-      class="form-control" name="catSlug" id="catSlug" required
-      #catSlug="ngModel">
-      <div [hidden]="catSlug.valid||catSlug.untouched" class="alert alert-warning">
-        Slug is Required
-      </div>
+    <label for="fullName" class="form-label">Name</label>
+    <input type="text"  [(ngModel)]="newCat.name" formControlName="name" class="form-control" name="name" id="name"
+      [class.is-valid]="name?.valid" [class.is-invalid]="name?.invalid">
+    <div class="alert alert-warning" [hidden]="name?.valid || name?.untouched">
+      <small *ngIf="name?.errors?.['required']"> name is required</small>
+      <small *ngIf="name?.errors?.['minlength']"> name must be more than 5 charachters</small>
+    </div>
   </div>
 
   <div class="mb-3">
-    <label for="catDescription" class="form-label">Description</label>
-    <textarea name="catDescription" class="form-control" [(ngModel)]="newCat.description"
-    id=""  required #catDescription="ngModel"></textarea>
-      <div [hidden]="catDescription.valid||catDescription.untouched" class="alert alert-warning">
-        Description is Required
-      </div>
+    <label for="slug" class="form-label">slug</label>
+    <input type="text"  [(ngModel)]="newCat.slug" formControlName="slug" class="form-control" name="slug" id="slug"
+      [class.is-valid]="slug?.valid" [class.is-invalid]="name?.invalid">
+    <div class="alert alert-warning" [hidden]="slug?.valid || slug?.untouched">
+      <small *ngIf="slug?.errors?.['required']"> slug is required</small>
+    </div>
   </div>
 
-  <div class="form-group">
-    <input type="file" (change)="onSelectedFile($event)">
+  <div class="mb-3">
+    <label for="description" class="form-label">description</label>
+<textarea [(ngModel)]="newCat.description" formControlName="description" class="form-control" name="description" id="description"
+[class.is-valid]="description?.valid" [class.is-invalid]="description?.invalid"></textarea>
+    <div class="alert alert-warning" [hidden]="description?.valid || description?.untouched">
+      <small *ngIf="description?.errors?.['required']"> description is required</small>
+    </div>
   </div>
 
-  <button [disabled]="catForm.invalid" type="submit" class="btn btn-success">Submit</button>
+  <div class="form-control">
+    <input type="file" (change)="onSelectedFile($event)" name="image" id="image"
+    formControlName="image"
+    class="form-control" [(ngModel)]="newCat.image">
+  </div>
 
-</form>
+  <br>
+  <br>
+  <button [disabled]="CategoryFormGroup.invalid" type="submit" class="btn btn-success">Submit</button>
+
+  </form>
+
+  <div class="bg">
+    for test {{CategoryFormGroup.value | json}}
+  </div>
+
 

@@ -5,7 +5,10 @@ import { Category } from 'src/app/Models/category';
 import { CategoryService } from 'src/app/Services/category.service';
 import { environment } from 'src/environments/environment';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
 import Swal from 'sweetalert2';
+
+
 // import {ImageUploadService} from './image-upload-service';
 
 @Component({

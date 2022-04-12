@@ -1,5 +1,4 @@
 
-
 export interface Products {
   id:number,
   category_id:number,
@@ -9,6 +8,7 @@ export interface Products {
   original_price:number,
   selling_price:number,
   quantity:number,
+  slug:string,
   image:String
 
 }

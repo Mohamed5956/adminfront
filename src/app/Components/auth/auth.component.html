@@ -1,0 +1,50 @@
+
+
+       <div class="container shadow mt-5 w-25">
+         <h2>Login</h2>
+        <form method="POST" [formGroup]="formGroup" (ngSubmit)="login()">
+          <div class="mb-3 ">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email"  formControlName="email" class="form-control"  aria-describedby="emailHelp" required>
+            <div  *ngIf="" class="text-danger">
+              *Email is required
+              </div>
+
+          </div>
+          <div class="mb-3 ">
+            <label for="password" class="form-label">Password</label>
+            <input type="text" name="password"  formControlName="password" class="form-control"  aria-describedby="emailHelp" required>
+            <div  *ngIf="" class="text-danger">
+              *password is required
+              </div>
+              </div>
+
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">login</button>
+         </form>
+
+         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

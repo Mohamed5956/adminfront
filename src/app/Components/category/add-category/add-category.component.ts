@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Category } from 'src/app/Models/category';
 import { CategoryService } from 'src/app/Services/category.service';
 import { environment } from 'src/environments/environment';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 // import {ImageUploadService} from './image-upload-service';
 
@@ -16,21 +17,32 @@ export class AddCategoryComponent implements OnInit {
 
   newCat:Category = {} as Category;
   selectedImage!: File ;
+  CategoryFormGroup: FormGroup
   constructor(
+    private fb: FormBuilder,
     private router : Router,
     private categoryService:CategoryService,
     private http:HttpClient
-    ) { }
+    ) {
+      this.CategoryFormGroup = this.fb.group({
+        name: fb.control('', [Validators.required, Validators.minLength(5)]),
+        slug: fb.control('', Validators.required),
+        description: fb.control('', Validators.required),
+        image:fb.control('',Validators.required)
+      });
+    }
 
   ngOnInit(): void {
+    this.CategoryFormGroup.setValue
   }
 
   addCategory(){
-    const image = new FormData();
+    const image = new FormData() ;
     image.append('image',this.selectedImage,this.selectedImage.name);
     console.log(image);
     this.categoryService.addCategory(this.newCat).subscribe({
-          next:(prd)=>{
+          next:(cat)=>{
+            console.log(cat);
             Swal.fire(
               'Added Succesfully!',
               'You clicked the button!',
@@ -45,13 +57,21 @@ export class AddCategoryComponent implements OnInit {
     this.selectedImage=<File>event.target.files[0];
   }
 
-  uploadImage(){
-    const image = new FormData();
-    image.append('image',this.selectedImage,this.selectedImage.name);
-    this.http.post('https://localhost:8000/api/categories',image)
-    .subscribe(res=>{
-      console.log(res);
-    });
+
+  get name() {
+    return this.CategoryFormGroup.get('name');
+  }
+
+  get slug() {
+    return this.CategoryFormGroup.get('slug');
+  }
+
+  get description() {
+    return this.CategoryFormGroup.get('description');
+  }
+
+  get image() {
+    return this.CategoryFormGroup.get('image');
   }
 
 }

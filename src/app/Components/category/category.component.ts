@@ -39,7 +39,7 @@ export class CategoryComponent implements OnInit  {
         next: () => {
           this.getdata();
           Swal.fire(
-            'Product Deleted!',
+            'Category Deleted!',
             'click the button',
             'success'
           );

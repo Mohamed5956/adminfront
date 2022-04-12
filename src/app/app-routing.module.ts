@@ -11,6 +11,7 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { OrderHistoryComponent } from './Components/orders/order-history/order-history.component';
 import { OrdersComponent } from './Components/orders/orders.component';
 import { ViewOrderComponent } from './Components/orders/view-order/view-order.component';
+import { UsersComponent } from './Components/users/users.component';
 
 const routes: Routes = [
   {path:'',component:LayoutComponent,
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path:'edit-category/:cid',component:EditCategoryComponent},
   {path:'orders', component:OrdersComponent},
   {path:'orders/:oid',component:ViewOrderComponent},
-  {path:'order-history',component:OrderHistoryComponent}
+  {path:'order-history',component:OrderHistoryComponent},
+  {path:'usersAdmin' , component:UsersComponent},
   ]
   },
   {path:'**', component:NotFoundComponent},

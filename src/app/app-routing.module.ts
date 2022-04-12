@@ -20,7 +20,6 @@ const routes: Routes = [
   children:[
   {path:'',redirectTo:'/home',pathMatch:'full'},
   {path:'home',component:HomeComponent},
-  {path:'login', component:AuthComponent},
   {path:'products', component:AllProductsComponent},
   {path:'product/add',component:AddProductComponent},
   {path:'products/edit/:id',component:EditProductComponent},
@@ -33,6 +32,7 @@ const routes: Routes = [
   {path:'order-history',component:OrderHistoryComponent}
   ]
   },
+  {path:'login', component:AuthComponent},
   {path:'**', component:NotFoundComponent}
 ];
 

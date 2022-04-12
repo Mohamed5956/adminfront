@@ -1,7 +1,9 @@
-import { Auth } from './../../Models/auth';
+
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/Services/auth.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 
 
 @Component({
@@ -11,26 +13,43 @@ import { AuthService } from 'src/app/Services/auth.service';
 })
 export class AuthComponent implements OnInit {
 
-  auth : Auth ={} as Auth;
+  formGroup :FormGroup=new FormGroup({});
 
-  constructor(private router:Router , private authservice:AuthService) { }
+  constructor(private router:Router , private authservice:AuthService) {
 
-  ngOnInit(): void {
+   }
+
+  ngOnInit(): void
+  {
+    this.initForm();
 
   }
 
+    initForm()
+    {
+      this.formGroup =new FormGroup({
+        email:new FormControl('',[Validators.required]),
+        password:new FormControl('',[Validators.required])
+
+
+      });
+    }
 
     login()
-     {
-    this.authservice.auth_login(this.auth).subscribe(
-      {next:(data)=>{
-        console.log(data.token);
-        localStorage.setItem('login',data.token);
-          this.router.navigate(['/products']);
-            }
-           }
-    );
+    {
+      if(this.formGroup.valid)
+      {
+        this.authservice.auth_login(this.formGroup.value).subscribe
+        (
+          data=>
+          {
+            localStorage.setItem('login',data.token);
+            this.router.navigate(['/home']);
+            console.log(data.token);
+          }
 
+        );
+      }
     }
 
 

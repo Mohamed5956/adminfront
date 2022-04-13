@@ -14,13 +14,18 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class AuthComponent implements OnInit {
 
   formGroup :FormGroup=new FormGroup({});
+  login_user:any=localStorage.getItem('login');
 
   constructor(private router:Router , private authservice:AuthService) {
 
    }
 
+
+
   ngOnInit(): void
   {
+
+
     this.initForm();
 
   }

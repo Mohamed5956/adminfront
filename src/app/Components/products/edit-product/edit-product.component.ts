@@ -1,5 +1,5 @@
 import { CategoryService } from 'src/app/Services/category.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from './../../../Models/category';
 import { Products } from './../../../Models/products';
 import { Component, OnInit } from '@angular/core';
@@ -15,11 +15,14 @@ export class EditProductComponent implements OnInit {
   productid:any;
   product:Products={} as Products;
   categorylist:Category[]=[];
+  
   constructor(private activatedroute:ActivatedRoute,private productservice:ProductsService,
-    private categoryservice:CategoryService
+    private categoryservice:CategoryService ,private router:Router
     ) { }
 
   ngOnInit(): void {
+
+
 
     this.categoryservice.getAllCategories().subscribe(e => {
       this.categorylist = e;
@@ -55,6 +58,7 @@ export class EditProductComponent implements OnInit {
     return this.productservice.editproduct(this.product).subscribe(product=>
     {
       console.log(product);
+      this.router.navigate(['/products']);
 
     });
   }

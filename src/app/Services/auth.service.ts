@@ -41,9 +41,17 @@ export class AuthService  implements HttpInterceptor{
 
   auth_logout()
   {
-    
+
     return this.httpClient.delete(`${environment.APIBaseURL}/logout`);
   }
 
+
+
+  loggedIn()
+  {
+    return !!localStorage.getItem('login');
+  }
+
+  
 
 }

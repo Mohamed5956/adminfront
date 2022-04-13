@@ -14,7 +14,7 @@
     <input type="text" [(ngModel)]="product.name"
       class="form-control" name="name" id="name" required  #name="ngModel">
       <div [hidden]="name.valid || name.untouched" class="alert alert-warning">
-        {{error.name}}
+        Name is required
       </div>
   </div>
 

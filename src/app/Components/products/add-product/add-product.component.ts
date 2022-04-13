@@ -16,10 +16,18 @@ export class AddProductComponent implements OnInit {
   categorylist:Category[]=[];
   error:Products={} as Products;
   add:number=0;
-
+  login_user:any=localStorage.getItem('login');
   constructor(private productservice:ProductsService,private router:Router , private categoryservice:CategoryService) { }
 
   ngOnInit(): void {
+
+    if(!this.login_user)
+    {
+      this.router.navigate(['login']);
+      return;
+    }
+
+
     this.categoryservice.getAllCategories().subscribe(e => {
       this.categorylist = e;
       //JSON.stringify(catList);
@@ -32,11 +40,8 @@ export class AddProductComponent implements OnInit {
     {
     this.productservice.addproduct(this.product).subscribe(
       {next:(data)=>{
-
         if(data)
         this.add=1;
-        console.log(data);
-
       this.router.navigate(['/product/add']);
       },
 

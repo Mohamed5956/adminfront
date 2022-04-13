@@ -31,7 +31,8 @@ export class CategoryService {
   }
 
   addCategory(newCat: Category): Observable<Category> {
-    return this.httpClient.post<Category>(`${environment.APIBaseURL}/categories`, JSON.stringify(newCat), this.httpOptions);
+    // formdata type
+    return this.httpClient.post<Category>(`${environment.APIBaseURL}/categories`, FormData , this.httpOptions);
   }
 
   editCategory(catID: number, newCat: Category) {

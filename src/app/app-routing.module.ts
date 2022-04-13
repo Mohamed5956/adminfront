@@ -15,6 +15,7 @@ import { UsersComponent } from './Components/users/users.component';
 import { AddProductComponent } from './Components/products/add-product/add-product.component';
 import { AllProductsComponent } from './Components/products/all-products/all-products.component';
 import { EditProductComponent } from './Components/products/edit-product/edit-product.component';
+import { ViewUserComponent } from './Components/users/view-user/view-user.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -34,6 +35,7 @@ const routes: Routes = [
   {path:'orders/:oid',component:ViewOrderComponent,canActivate:[AuthGuard]},
   {path:'order-history',component:OrderHistoryComponent,canActivate:[AuthGuard]},
   {path:'usersAdmin' , component:UsersComponent,canActivate:[AuthGuard]},
+  {path:'view-user/:id',component:ViewUserComponent,canActivate:[AuthGuard]},
   ]
   },
   {path:'login', component:AuthComponent},

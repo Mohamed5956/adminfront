@@ -37,8 +37,8 @@ export class AuthComponent implements OnInit {
         email:new FormControl('',[Validators.required]),
         password:new FormControl('',[Validators.required])
 
-
       });
+
     }
 
     login()
@@ -50,7 +50,7 @@ export class AuthComponent implements OnInit {
            next:(data)=>
           {
             console.log(data);
-             if(data!=null){
+             if(data!=null && data.role!='user'){
               this.vaild_login=1;
              localStorage.setItem('login',data.token);
              this.router.navigate(['/home']);

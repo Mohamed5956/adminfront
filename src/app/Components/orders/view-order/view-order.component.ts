@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Orders } from 'src/app/Models/orders';
 import { OrderService } from 'src/app/Services/order.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-view-order',
@@ -37,7 +38,11 @@ export class ViewOrderComponent implements OnInit {
   updateOrder(){
     this.OrderService.updateOrder(this.Order).subscribe({
       next:(res)=>{
-          alert(" the Order is updated successfully");
+        Swal.fire(
+          'The Order Status is updated successfully!',
+          'click the button',
+          'success'
+        );
           this.router.navigate(['/orders']);
           },
         error:(err)=>{console.log(err)}

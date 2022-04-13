@@ -10,7 +10,7 @@
                         <div class="row order-details">
                             <div class="col-md-6">
                               <ng-container >
-                                {{Order}}
+
                               </ng-container>
                                 <h4>Shipping Details</h4>
                                 <hr>
@@ -32,12 +32,10 @@
                                 <label for="">Zip Code</label>
                                 <div class="border">{{ Order.pincode }}</div>
                             </div>
-
-                            <!-- <div class="col-md-6">
+                            <div class="col-md-6">
                                 <h4>Order Details</h4>
                                 <hr>
                                 <table class="table table-bordered">
-
                                     <thead>
                                         <tr>
                                             <th>Name</th>
@@ -47,34 +45,34 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($orders->orderItems as $item)
+                                        <ng-container *ngFor="let item of Order.order_item">
                                             <tr>
-                                                <td>{{ $item->products->name }}</td>
-                                                <td>{{ $item->quantity }}</td>
-                                                <td>{{ $item->price }}</td>
+                                              <td><ng-container *ngFor="let product of Order.productss">{{product.name}}</ng-container></td>
+                                                <td>{{item.quantity}}</td>
+                                                <td>{{item.price}}</td>
                                                 <td>
-                                                    <img src="{{ asset('assets/uploads/products/' . $item->products->image) }}"
+                                                  <ng-container *ngFor="let product of Order.productss">
+                                                    <img src=""
                                                         width="50px" alt="Product-image">
+                                                  </ng-container>
                                                 </td>
 
                                             </tr>
-                                        @endforeach
+                                          </ng-container>
                                     </tbody>
                                 </table>
-                                <h4 class="px-2">Total : <span class="float-end">{{ $orders->total_price }} $ </span></h4>
+                                <h4 class="px-2">Total : <span class="float-end">{{ Order.total_price }} $ </span></h4>
                                 <div class="mt-5 px-2">
-                                    <form action="{{ url('orders/' . $orders->id) }}" method="POST">
-                                        @method('PUT')
-                                        @csrf
+                                    <form  #Form="ngForm" (ngSubmit)="updateOrder()" method="POST">
                                         <label for="">Order Status</label>
-                                        <select class="form-select" name="order_status">
-                                            <option {{ $orders->status == '0' ? 'selected' : '' }} value="0">Pending</option>
-                                            <option {{ $orders->status == '1' ? 'selected' : '' }} value="1">Completed</option>
+                                        <select class="form-select" name="status" [(ngModel)]="Order.status" [ngModelOptions]="{standalone:true}">
+                                            <option [selected]="Order.status == 0" value="0">Pending</option>
+                                            <option [selected]="Order.status == 1" value="1">Completed</option>
                                         </select>
-                                        <button type="submit" class="btn btn-primary mt-3">Update</button>
+                                        <button type="submit" class="btn btn-primary mt-3" value="Update">Update</button>
                                     </form>
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
 
                     </div>

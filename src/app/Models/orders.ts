@@ -1,3 +1,5 @@
+import { Orderitem } from "./orderitem";
+import { Products } from "./products";
 
 export interface Orders {
   id:number,
@@ -16,5 +18,6 @@ export interface Orders {
   total_price:string,
   status:number,
   created_at:Date,
-  
+  order_item?:Orderitem[],
+  productss?:Products[]
 }

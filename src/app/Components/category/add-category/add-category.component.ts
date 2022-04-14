@@ -43,7 +43,7 @@ export class AddCategoryComponent implements OnInit {
     const image = new FormData() ;
     // this.image!.value('image',this.selectedImage,this.selectedImage.name)
     image.append('image',this.selectedImage,this.selectedImage.name);
-    
+
     console.log(this.image);
     this.categoryService.addCategory(this.newCat).subscribe({
           next:(cat)=>{

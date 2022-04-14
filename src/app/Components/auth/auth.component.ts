@@ -14,13 +14,19 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class AuthComponent implements OnInit {
 
   formGroup :FormGroup=new FormGroup({});
+  login_user:any=localStorage.getItem('login');
+  vaild_login:number=1;
 
   constructor(private router:Router , private authservice:AuthService) {
 
    }
 
+
+
   ngOnInit(): void
   {
+
+
     this.initForm();
 
   }
@@ -31,8 +37,8 @@ export class AuthComponent implements OnInit {
         email:new FormControl('',[Validators.required]),
         password:new FormControl('',[Validators.required])
 
-
       });
+
     }
 
     login()
@@ -40,15 +46,28 @@ export class AuthComponent implements OnInit {
       if(this.formGroup.valid)
       {
         this.authservice.auth_login(this.formGroup.value).subscribe
-        (
-          data=>
+        ({
+           next:(data)=>
           {
-            localStorage.setItem('login',data.token);
-            this.router.navigate(['/home']);
-            console.log(data.token);
+            console.log(data);
+             if(data!=null && data.role!='user'){
+              this.vaild_login=1;
+             localStorage.setItem('login',data.token);
+             this.router.navigate(['/home']);
+            }else
+            {
+
+              this.vaild_login=0;
+
+            }
+          },
+          error:()=>{
+
+            this.vaild_login=0;
+
           }
 
-        );
+        });
       }
     }
 

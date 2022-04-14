@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth.guard';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
@@ -57,9 +58,10 @@ import { ViewUserComponent } from './Components/users/view-user/view-user.compon
   ],
   providers:
   [
+    [AuthService,AuthGuard],
     {
      provide :HTTP_INTERCEPTORS,
-    useClass :AuthService,
+      useClass :AuthService,
      multi:true
     }
 

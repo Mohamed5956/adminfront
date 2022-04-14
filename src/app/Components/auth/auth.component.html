@@ -1,7 +1,12 @@
 
-
        <div class="container shadow mt-5 w-25">
          <h2>Login</h2>
+         <ng-container *ngIf="vaild_login==0">
+           <div class="alert alert-danger">
+             Invaild Email Or Password
+           </div>
+         </ng-container>
+
         <form method="POST" [formGroup]="formGroup" (ngSubmit)="login()">
           <div class="mb-3 ">
             <label for="email" class="form-label">Email</label>
@@ -23,6 +28,8 @@
          </form>
 
          </div>
+
+
 
 
 

@@ -16,24 +16,26 @@ import { AddProductComponent } from './Components/products/add-product/add-produ
 import { AllProductsComponent } from './Components/products/all-products/all-products.component';
 import { EditProductComponent } from './Components/products/edit-product/edit-product.component';
 import { ViewUserComponent } from './Components/users/view-user/view-user.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {path:'',component:LayoutComponent,
+
   children:[
   {path:'',redirectTo:'/home',pathMatch:'full'},
-  {path:'home',component:HomeComponent},
-  {path:'products', component:AllProductsComponent},
-  {path:'product/add',component:AddProductComponent},
-  {path:'products/edit/:id',component:EditProductComponent},
-  {path:'getproducts/:id',component:AllProductsComponent},
-  {path:'categories', component:CategoryComponent},
-  {path:'add-category',component:AddCategoryComponent},
-  {path:'edit-category/:cid',component:EditCategoryComponent},
-  {path:'orders', component:OrdersComponent},
-  {path:'orders/:oid',component:ViewOrderComponent},
-  {path:'order-history',component:OrderHistoryComponent},
-  {path:'usersAdmin' , component:UsersComponent},
-  {path:'view-user/:id',component:ViewUserComponent}
+  {path:'home',component:HomeComponent,canActivate:[AuthGuard]},
+  {path:'products', component:AllProductsComponent,canActivate:[AuthGuard]},
+  {path:'product/add',component:AddProductComponent,canActivate:[AuthGuard]},
+  {path:'products/edit/:id',component:EditProductComponent,canActivate:[AuthGuard]},
+  {path:'getproducts/:id',component:AllProductsComponent,canActivate:[AuthGuard]},
+  {path:'categories', component:CategoryComponent,canActivate:[AuthGuard]},
+  {path:'add-category',component:AddCategoryComponent,canActivate:[AuthGuard]},
+  {path:'edit-category/:cid',component:EditCategoryComponent,canActivate:[AuthGuard]},
+  {path:'orders', component:OrdersComponent,canActivate:[AuthGuard]},
+  {path:'orders/:oid',component:ViewOrderComponent,canActivate:[AuthGuard]},
+  {path:'order-history',component:OrderHistoryComponent,canActivate:[AuthGuard]},
+  {path:'usersAdmin' , component:UsersComponent,canActivate:[AuthGuard]},
+  
   ]
   },
   {path:'login', component:AuthComponent},

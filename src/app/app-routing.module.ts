@@ -15,6 +15,7 @@ import { UsersComponent } from './Components/users/users.component';
 import { AddProductComponent } from './Components/products/add-product/add-product.component';
 import { AllProductsComponent } from './Components/products/all-products/all-products.component';
 import { EditProductComponent } from './Components/products/edit-product/edit-product.component';
+import { ViewUserComponent } from './Components/users/view-user/view-user.component';
 
 const routes: Routes = [
   {path:'',component:LayoutComponent,
@@ -32,6 +33,7 @@ const routes: Routes = [
   {path:'orders/:oid',component:ViewOrderComponent},
   {path:'order-history',component:OrderHistoryComponent},
   {path:'usersAdmin' , component:UsersComponent},
+  {path:'view-user/:id',component:ViewUserComponent}
   ]
   },
   {path:'login', component:AuthComponent},

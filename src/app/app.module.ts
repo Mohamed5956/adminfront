@@ -22,6 +22,8 @@ import { AddProductComponent } from './Components/products/add-product/add-produ
 import { EditProductComponent } from './Components/products/edit-product/edit-product.component';
 import { AuthComponent } from './Components/auth/auth.component';
 import { AuthService } from './Services/auth.service';
+import { ViewUserComponent } from './Components/users/view-user/view-user.component';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +45,7 @@ import { AuthService } from './Services/auth.service';
     AddProductComponent,
     EditProductComponent,
     AuthComponent,
-
+    ViewUserComponent,
   ],
   imports: [
     BrowserModule,

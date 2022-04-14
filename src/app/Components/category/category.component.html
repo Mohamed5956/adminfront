@@ -27,7 +27,9 @@
       <td>{{i+1}}</td>
         <td>{{ cat.name | uppercase}}</td>
         <td>
-          <img class="first" Boxshadow="red" [src]="cat.image">
+          <!-- public\assets\uploads\category\1649924011.png -->
+          <!-- {{cat.image}} -->
+          <img src="http://localhost:8000/assets/uploads/category/{{cat.image}}">
         </td>
         <td>{{cat.slug}}</td>
         <td>{{cat.description}}</td>

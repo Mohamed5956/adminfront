@@ -18,48 +18,50 @@ import Swal from 'sweetalert2';
 })
 export class AddCategoryComponent implements OnInit {
 
-  newCat:Category = {} as Category;
-  selectedImage!: File ;
+  newCat: Category = {} as Category;
+  selectedImage!: File;
   CategoryFormGroup: FormGroup
   constructor(
     private fb: FormBuilder,
-    private router : Router,
-    private categoryService:CategoryService,
-    private http:HttpClient
-    ) {
-      this.CategoryFormGroup = this.fb.group({
-        name: fb.control('', [Validators.required, Validators.minLength(5)]),
-        slug: fb.control('', Validators.required),
-        description: fb.control('', Validators.required),
-        image:fb.control('',Validators.required)
-      });
-    }
+    private router: Router,
+    private categoryService: CategoryService,
+    private http: HttpClient
+  ) {
+    this.CategoryFormGroup = this.fb.group({
+      name: fb.control('', [Validators.required, Validators.minLength(5)]),
+      slug: fb.control('', Validators.required),
+      description: fb.control('', Validators.required),
+      image: fb.control('', Validators.required)
+    });
+  }
 
   ngOnInit(): void {
     this.CategoryFormGroup.setValue
   }
 
-  addCategory(){
-    const image = new FormData() ;
-    // this.image!.value('image',this.selectedImage,this.selectedImage.name)
-    image.append('image',this.selectedImage,this.selectedImage.name);
-
-    console.log(this.image);
-    this.categoryService.addCategory(this.newCat).subscribe({
-          next:(cat)=>{
-            console.log(cat);
-            Swal.fire(
-              'Added Succesfully!',
-              'You clicked the button!',
-              'success'
-            );
-            this.router.navigate(['/categories']);},
-          error:(err)=>{alert('error occured')}
-        });
+  addCategory() {
+    var formData: any = new FormData;
+    formData.append('name', this.name?.value);
+    formData.append('slug', this.slug?.value);
+    formData.append('description', this.description?.value);
+    formData.append('image', this.selectedImage, this.selectedImage.name);
+    this.http.post(`${environment.APIBaseURL}/categories`, formData).subscribe({
+      next: (v) => {
+        console.log(v);
+        Swal.fire(
+          'Added Succesfully!',
+          'You clicked the button!',
+          'success'
+        );
+        this.router.navigate(['/categories']);
+      },
+      error: (e) => console.error(e),
+    }
+    );
   }
 
-  onSelectedFile(event:any){
-    this.selectedImage=<File>event.target.files[0];
+  onSelectedFile(event: any) {
+    this.selectedImage = <File>event.target.files[0];
     console.log(this.selectedImage);
   }
 

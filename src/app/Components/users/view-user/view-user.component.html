@@ -10,57 +10,59 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                          <form  #Form="ngForm" (ngSubmit)="updateUser()" method="POST">
-                            <label for="">User role</label>
-                            <select class="form-select" name="role" [(ngModel)]="User.role" [ngModelOptions]="{standalone:true}">
-                                <option [selected]="User.role == 'admin' " value="admin">Admin</option>
-                                <option [selected]="User.role == 'manager' " value="manager">Manager</option>
-                                <option [selected]="User.role == 'user' " value="user">User</option>
-                            </select>
-                            <button type="submit" class="btn btn-primary mt-3" value="Update">Update</button>
-                        </form>
-                          <ng-container  *ngFor="let item of User.order">
+                          {{User.user?.role}}
+                            <form  #Form="ngForm" (ngSubmit)="updateUser()" method="POST">
+                              <label for="">User role</label>
+                              <select class="form-select" name="role" [(ngModel)]="User.user.role" [ngModelOptions]="{standalone:true}">
+                                <!-- <select name="role" id="" class="form-select" [(ngModel)]="User.user?.role" > -->
+                                  <option [selected]="User.user.role == 'admin' " value="admin">Admin</option>
+                                  <option [selected]="User.user.role == 'manager' " value="manager">Manager</option>
+                                  <option [selected]="User.user.role == 'user' " value="user">User</option>
+                                </select>
+                              <!-- </select> -->
+                              <button type="submit" class="btn btn-primary mt-3" value="Update">Update</button>
+                          </form>
 
                             <div class="col-md-4">
                                 <label for="">First Name</label>
-                                <div class="p-2 border"> {{ item.fname}} </div>
+                                <div class="p-2 border"> {{ User.fname}} </div>
                             </div>
 
                             <div class="col-md-4">
                               <label for="">Last Name</label>
-                              <div class="p-2 border"> {{ item.lname}} </div>
+                              <div class="p-2 border"> {{ User.lname}} </div>
                           </div>
 
                               <div class="col-md-4">
                                   <label for="">Email</label>
-                                  <div class="p-2 border"> {{ item.email}} </div>
+                                  <div class="p-2 border"> {{ User.email}} </div>
                               </div>
 
                             <div class="col-md-4">
                                 <label for="">Phone</label>
-                                <div class="p-2 border"> {{ item.phone }} </div>
+                                <div class="p-2 border"> {{ User.phone }} </div>
                             </div>
                             <div class="col-md-4">
                                 <label for="">Address 1</label>
-                                <div class="p-2 border"> {{ item.address1 }} </div>
+                                <div class="p-2 border"> {{ User.address1 }} </div>
                             </div>
                             <div class="col-md-4">
                                 <label for="">Address 2</label>
-                                <div class="p-2 border"> {{ item.address2 }} </div>
+                                <div class="p-2 border"> {{ User.address2 }} </div>
                             </div>
                             <div class="col-md-4">
                                 <label for="">City</label>
-                                <div class="p-2 border"> {{ item.city }} </div>
+                                <div class="p-2 border"> {{ User.city }} </div>
                             </div>
                             <div class="col-md-4">
                                 <label for="">State</label>
-                                <div class="p-2 border"> {{ item.state }} </div>
+                                <div class="p-2 border"> {{ User.state }} </div>
                             </div>
                             <div class="col-md-4">
                             <label for="">Zip Code</label>
-                            <div class="p-2 border"> {{ item.pincode }} </div>
+                            <div class="p-2 border"> {{ User.pincode }} </div>
                         </div>
-                      </ng-container>
+
                         </div>
                     </div>
                 </div>

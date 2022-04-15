@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserInformation } from 'src/app/Models/user-information';
 import { Users } from 'src/app/Models/users';
 import { UserService } from 'src/app/Services/user.service';
 import Swal from 'sweetalert2';
@@ -13,7 +14,7 @@ export class ViewUserComponent implements OnInit {
 
   UserID: number=0;
 
-  User:Users = {} as Users;
+  User:UserInformation = {} as UserInformation;
 
 
   constructor(

@@ -52,6 +52,7 @@ export class AddCategoryComponent implements OnInit {
                     'You clicked the button!',
                     'success'
                   );
+                  this.router.navigate(['/categories']);
       },
       error: (e) => console.error(e),
     }

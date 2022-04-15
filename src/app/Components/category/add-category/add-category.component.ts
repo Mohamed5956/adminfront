@@ -45,9 +45,6 @@ export class AddCategoryComponent implements OnInit {
     formData.append('slug',this.slug?.value);
     formData.append('description',this.description?.value);
     formData.append('image',this.selectedImage,this.selectedImage.name);
-
-    console.log(this.slug?.value);
-    console.log(this.image);
     this.http.post('http://localhost:8000/api/categories',formData).subscribe({
       next: (v) => {console.log(v);
         Swal.fire(

@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { UserInformation } from '../Models/user-information';
 import { Users } from '../Models/users';
 
 @Injectable({
@@ -23,12 +24,12 @@ export class UserService {
     return this.httpClient.get <Users[]>(`${environment.APIBaseURL}/usersAdmin`);
   }
 
-  getUserByID(UserID:number): Observable <Users> {
-    return this.httpClient.get <Users>(`${environment.APIBaseURL}/view-user/${UserID}`);
+  getUserByID(UserID:number): Observable <UserInformation> {
+    return this.httpClient.get <UserInformation>(`${environment.APIBaseURL}/view-user/${UserID}`);
   }
 
-  updateUser(newRole: Users): Observable<Users> {
-    return this.httpClient.put<Users>(`${environment.APIBaseURL}/update-user/${newRole.id}`, JSON.stringify(newRole), this.httpOptions)
+  updateUser(newRole: UserInformation): Observable<UserInformation> {
+    return this.httpClient.put<UserInformation>(`${environment.APIBaseURL}/update-user/${newRole.id}`, JSON.stringify(newRole), this.httpOptions)
   }
 
 }

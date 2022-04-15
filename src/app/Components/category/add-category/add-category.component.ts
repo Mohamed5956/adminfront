@@ -40,22 +40,25 @@ export class AddCategoryComponent implements OnInit {
   }
 
   addCategory(){
-    const image = new FormData() ;
-    // this.image!.value('image',this.selectedImage,this.selectedImage.name)
-    image.append('image',this.selectedImage,this.selectedImage.name);
+    var formData :any = new FormData;
+    formData.append('name',this.name?.value);
+    formData.append('slug',this.slug?.value);
+    formData.append('description',this.description?.value);
+    formData.append('image',this.selectedImage,this.selectedImage.name);
 
+    console.log(this.slug?.value);
     console.log(this.image);
-    this.categoryService.addCategory(this.newCat).subscribe({
-          next:(cat)=>{
-            console.log(cat);
-            Swal.fire(
-              'Added Succesfully!',
-              'You clicked the button!',
-              'success'
-            );
-            this.router.navigate(['/categories']);},
-          error:(err)=>{alert('error occured')}
-        });
+    this.http.post('http://localhost:8000/api/categories',formData).subscribe({
+      next: (v) => {console.log(v);
+        Swal.fire(
+                    'Added Succesfully!',
+                    'You clicked the button!',
+                    'success'
+                  );
+      },
+      error: (e) => console.error(e),
+    }
+    );
   }
 
   onSelectedFile(event:any){

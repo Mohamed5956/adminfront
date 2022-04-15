@@ -11,13 +11,18 @@ export class HomeService {
 
 
 
-  users() {
+   users() {
   return this.httpClient.get(`${environment.APIBaseURL}/numberusers`);
    }
 
    clients()
    {
     return this.httpClient.get(`${environment.APIBaseURL}/numbercustomers`);
+   }
+
+   orders()
+   {
+    return this.httpClient.get(`${environment.APIBaseURL}/todayorders`);
 
    }
 

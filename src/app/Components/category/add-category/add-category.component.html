@@ -1,10 +1,9 @@
-
 <h1> Add Category</h1>
 
-<form [formGroup]="CategoryFormGroup" (ngSubmit)="addCategory()"  enctype="multipart/form-data">
+<form [formGroup]="CategoryFormGroup" (ngSubmit)="addCategory()" enctype="multipart/form-data">
   <div class="mb-3">
     <label for="fullName" class="form-label">Name</label>
-    <input type="text"  [(ngModel)]="newCat.name" formControlName="name" class="form-control" name="name" id="name"
+    <input type="text" [(ngModel)]="newCat.name" formControlName="name" class="form-control" name="name" id="name"
       [class.is-valid]="name?.valid" [class.is-invalid]="name?.invalid">
     <div class="alert alert-warning" [hidden]="name?.valid || name?.untouched">
       <small *ngIf="name?.errors?.['required']"> name is required</small>
@@ -14,7 +13,7 @@
 
   <div class="mb-3">
     <label for="slug" class="form-label">slug</label>
-    <input type="text"  [(ngModel)]="newCat.slug" formControlName="slug" class="form-control" name="slug" id="slug"
+    <input type="text" [(ngModel)]="newCat.slug" formControlName="slug" class="form-control" name="slug" id="slug"
       [class.is-valid]="slug?.valid" [class.is-invalid]="name?.invalid">
     <div class="alert alert-warning" [hidden]="slug?.valid || slug?.untouched">
       <small *ngIf="slug?.errors?.['required']"> slug is required</small>
@@ -23,27 +22,24 @@
 
   <div class="mb-3">
     <label for="description" class="form-label">description</label>
-<textarea [(ngModel)]="newCat.description" formControlName="description" class="form-control" name="description" id="description"
-[class.is-valid]="description?.valid" [class.is-invalid]="description?.invalid"></textarea>
+    <textarea [(ngModel)]="newCat.description" formControlName="description" class="form-control" name="description"
+      id="description" [class.is-valid]="description?.valid" [class.is-invalid]="description?.invalid"></textarea>
     <div class="alert alert-warning" [hidden]="description?.valid || description?.untouched">
       <small *ngIf="description?.errors?.['required']"> description is required</small>
     </div>
   </div>
 
   <div class="form-control">
-    <input type="file" (change)="onSelectedFile($event)" name="image" id="image"
-    formControlName="image"
-    class="form-control" [(ngModel)]="newCat.image">
+    <input type="file" (change)="onSelectedFile($event)" name="image" id="image" formControlName="image"
+      class="form-control" [(ngModel)]="newCat.image">
   </div>
 
   <br>
   <br>
   <button [disabled]="CategoryFormGroup.invalid" type="submit" class="btn btn-success">Submit</button>
 
-  </form>
+</form>
 
-  <div class="bg">
-    for test {{CategoryFormGroup.value | json}}
-  </div>
-
-
+<div class="bg">
+  for test {{CategoryFormGroup.value | json}}
+</div>

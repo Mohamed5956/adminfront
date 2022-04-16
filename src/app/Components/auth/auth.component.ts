@@ -32,7 +32,7 @@ export class AuthComponent implements OnInit {
     {
       this.formGroup =new FormGroup({
         email:new FormControl('',[Validators.required]),
-        password:new FormControl('',[Validators.required])
+        password:new FormControl('',[Validators.required, Validators.minLength(6)])
 
       });
 

@@ -37,6 +37,8 @@
 </form>
 <br> -->
 
+
+<div class="container shadow product">
 <h1> Edit Category</h1>
 
 <form [formGroup]="CategoryFormGroup" (ngSubmit)="updateCategory()" enctype="multipart/form-data">
@@ -67,7 +69,7 @@
       <small *ngIf="description?.errors?.['required']"> description is required</small>
     </div>
   </div>
-  
+
 <ng-container *ngIf="Category.image">
   <img src="http://localhost:8000/assets/uploads/category/{{Category.image}}" alt="" width="100px">
 </ng-container>
@@ -81,6 +83,7 @@
   <button [disabled]="CategoryFormGroup.invalid" type="submit" class="btn btn-success">Submit</button>
 
 </form>
+</div>
 
 <div class="bg">
   for test {{CategoryFormGroup.value | json}}

@@ -16,7 +16,6 @@ export class ViewUserComponent implements OnInit {
 
   User:UserInformation = {} as UserInformation;
 
-
   constructor(
     private activeRoute: ActivatedRoute,
     private userService:UserService,
@@ -37,7 +36,9 @@ export class ViewUserComponent implements OnInit {
 
   updateUser(){
 
-    this.userService.updateUser(this.User).subscribe({
+    console.log(this.User.user);
+
+    this.userService.updateUser(this.User.user).subscribe({
       next:(res)=>{
         Swal.fire(
           'The User Role is updated successfully!',

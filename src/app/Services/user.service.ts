@@ -33,4 +33,10 @@ export class UserService {
     return this.httpClient.put<Users>(`${environment.APIBaseURL}/update-user/${newRole.id}`, JSON.stringify(newRole), this.httpOptions)
   }
 
+
+  getDataUser(UserID:number):Observable<Users>{
+    return this.httpClient.get <Users>(`${environment.APIBaseURL}/users/${UserID}`)
+
+  }
+
 }

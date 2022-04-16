@@ -15,6 +15,7 @@ export class ViewUserComponent implements OnInit {
   UserID: number=0;
 
   User:UserInformation = {} as UserInformation;
+  DataUser:Users={} as Users;
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -25,6 +26,15 @@ export class ViewUserComponent implements OnInit {
      //to get the specific user i want to view / update it
       this.activeRoute.paramMap.subscribe((params)=>{
       this.UserID=Number(params.get("id"));
+
+      this.userService.getDataUser(this.UserID).subscribe({
+        next:(data)=>{
+          this.DataUser=data;
+         // console.log(data);
+        }
+
+      });
+
       this.userService.getUserByID(this.UserID).subscribe({
         next:(data)=>{
                       this.User=data;
@@ -36,9 +46,7 @@ export class ViewUserComponent implements OnInit {
 
   updateUser(){
 
-    console.log(this.User.user);
-
-    this.userService.updateUser(this.User.user).subscribe({
+    this.userService.updateUser(this.DataUser).subscribe({
       next:(res)=>{
         Swal.fire(
           'The User Role is updated successfully!',

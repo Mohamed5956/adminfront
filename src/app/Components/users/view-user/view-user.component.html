@@ -10,14 +10,14 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                          {{User.user?.role}}
+                          {{DataUser.role}}
                             <form  #Form="ngForm" (ngSubmit)="updateUser()" method="POST">
                               <label for="">User role</label>
-                              <select class="form-select" name="role"  [(ngModel)]="User.user.role" [ngModelOptions]="{standalone:true}">
+                              <select class="form-select" name="role"  [(ngModel)]="DataUser.role" [ngModelOptions]="{standalone:true}">
                                 <!-- <select name="role" id="" class="form-select" [(ngModel)]="User.user?.role" > -->
-                                  <option [selected]="User.user.role == 'admin' " value="admin">Admin</option>
-                                  <option [selected]="User.user.role == 'manager' " value="manager">Manager</option>
-                                  <option [selected]="User.user.role == 'user' " value="user">User</option>
+                                  <option [selected]="DataUser.role == 'admin' " value="admin">Admin</option>
+                                  <option [selected]="DataUser.role == 'manager' " value="manager">Manager</option>
+                                  <option [selected]="DataUser.role == 'user' " value="user">User</option>
                                 </select>
                               <!-- </select> -->
                               <button type="submit" class="btn btn-primary mt-3" value="Update">Update</button>

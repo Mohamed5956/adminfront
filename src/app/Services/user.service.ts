@@ -29,6 +29,7 @@ export class UserService {
   }
 
   updateUser(newRole: UserInformation): Observable<UserInformation> {
+    console.log(newRole);
     return this.httpClient.put<UserInformation>(`${environment.APIBaseURL}/update-user/${newRole.id}`, JSON.stringify(newRole), this.httpOptions)
   }
 

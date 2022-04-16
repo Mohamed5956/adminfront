@@ -24,7 +24,7 @@ export class ProductsService {
 
   }
 
-  addproduct(product:Products) :Observable<Products>
+  addproduct(product:any):Observable<Products>
   {
     return this.httpClient.post<Products>(`${environment.APIBaseURL}/products`,product);
   }

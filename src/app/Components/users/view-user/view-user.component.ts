@@ -36,6 +36,7 @@ export class ViewUserComponent implements OnInit {
   }
 
   updateUser(){
+
     this.userService.updateUser(this.User).subscribe({
       next:(res)=>{
         Swal.fire(

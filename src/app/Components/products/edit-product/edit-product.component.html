@@ -91,11 +91,7 @@
 
 
       <div class="mb-3 col-8">
-      <label for="quantity" class="form-label">Picture</label>
-     <input type="file"  name="image" required id="file"  [(ngModel)]="product.image"  class="form-control"  #file="ngModel">
-     <div [hidden]="file.valid|| file.untouched" class="alert alert-warning">
-      Quantity is Required
-    </div>
+        <img class="first" Boxshadow="red" src="http://localhost:8000/assets/uploads/{{product.image}}" width="100">
       </div>
       </div>
 

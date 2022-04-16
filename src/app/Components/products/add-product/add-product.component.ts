@@ -1,9 +1,11 @@
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Category } from './../../../Models/category';
 import { Products } from './../../../Models/products';
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/Services/products.service';
 import { CategoryService } from 'src/app/Services/category.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-product',
@@ -12,20 +14,30 @@ import { CategoryService } from 'src/app/Services/category.service';
 })
 export class AddProductComponent implements OnInit {
 
+  formGroup :FormGroup=new FormGroup({});
   product:Products={} as Products;
   categorylist:Category[]=[];
   error:Products={} as Products;
-  add:number=0;
-  login_user:any=localStorage.getItem('login');
-  constructor(private productservice:ProductsService,private router:Router , private categoryservice:CategoryService) { }
+
+  constructor(private productservice:ProductsService,private router:Router , private categoryservice:CategoryService) {
+
+    this.formGroup =new FormGroup({
+      name: new FormControl('', Validators.required),
+      slug: new FormControl('', Validators.required),
+      original_price: new FormControl('', Validators.required),
+      selling_price: new FormControl('', Validators.required),
+      small_description: new FormControl('', Validators.required),
+      description: new FormControl('', Validators.required),
+      category: new FormControl('', Validators.required),
+      quantity: new FormControl('', Validators.required),
+      image:new FormControl('',Validators.required)
+    });
+
+
+
+   }
 
   ngOnInit(): void {
-
-    if(!this.login_user)
-    {
-      this.router.navigate(['login']);
-      return;
-    }
 
 
     this.categoryservice.getAllCategories().subscribe(e => {
@@ -36,18 +48,24 @@ export class AddProductComponent implements OnInit {
 
   }
 
-    Add()
-    {
-    this.productservice.addproduct(this.product).subscribe(
+     Add()
+     {
+      const image = new FormData() ;
+      image.append('image','','');
+
+    this.productservice.addproduct(this.formGroup.value).subscribe(
       {next:(data)=>{
         if(data)
-        this.add=1;
-      this.router.navigate(['/product/add']);
+        {
+         Swal.fire("Added Successfully!", "You clicked the button!", "success");
+         this.router.navigate(['/products']);
+
+        }
+
       },
 
        error:(error)=>
       {
-        this.add=0;
         this.error=error;
         this.router.navigate(['/product/add']);
         console.log(this.error);

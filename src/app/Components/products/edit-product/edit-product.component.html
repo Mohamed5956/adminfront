@@ -1,7 +1,9 @@
-<h2> Edit Product</h2>
+<div class="container shadow product">
+<h2 class="p-4"> Edit Product</h2>
 
 <form #productForm="ngForm"  method="POST" (ngSubmit)="Edit()" enctype="multipart/form-data" >
-  <div class="mb-3">
+  <div class="row justify-content-center">
+  <div class="mb-3 col-8">
     <label for="name" class="form-label">Name</label>
     <input type="text" [(ngModel)]="product.name"
       class="form-control" name="name" id="name" required  #name="ngModel">
@@ -10,7 +12,7 @@
       </div>
   </div>
 
-  <div class="mb-3">
+  <div class="mb-3 col-8">
     <label for="catSlug" class="form-label">Slug</label>
     <input type="text" [(ngModel)]="product.slug"
       class="form-control" name="slug" id="catSlug" required #slug="ngModel">
@@ -20,7 +22,7 @@
   </div>
 
 
-  <div class="mb-3">
+  <div class="mb-3 col-8">
     <label for="shortdescription" class="form-label">Short Description</label>
     <textarea name="small_description" class="form-control" [(ngModel)]="product.small_description"
     id="shortdescription"  required #shortdescription="ngModel"></textarea>
@@ -31,7 +33,7 @@
 
 
 
-  <div class="mb-3">
+  <div class="mb-3 col-8">
     <label for="description" class="form-label">Description</label>
     <textarea name="description" class="form-control" [(ngModel)]="product.description"
     id="description"  required #description="ngModel"></textarea>
@@ -41,7 +43,7 @@
   </div>
 
 
-  <div class="mb-3">
+  <div class="mb-3 col-8">
     <label for="category" class="form-label">Category</label>
     <select class="form-control" name="category" [(ngModel)]="product.category_id" #category="ngModel"  required>
       <ng-container *ngFor="let category of categorylist">
@@ -56,7 +58,7 @@
 
 
 
-  <div class="mb-3">
+  <div class="mb-3 col-8">
     <label for="originalprice" class="form-label">Original Price</label>
     <input type="number"  min=0 [(ngModel)]="product.original_price"
       class="form-control" name="original_price" id="slug" required #originalprice="ngModel">
@@ -66,7 +68,7 @@
   </div>
 
 
-  <div class="mb-3">
+  <div class="mb-3 col-8">
     <label for="sellingprice" class="form-label">Selling Price</label>
     <input type="number"  min=0 [(ngModel)]="product.selling_price"
       class="form-control" name="selling_price" id="sellingprice" required #sellingprice="ngModel">
@@ -77,7 +79,7 @@
 
 
 
-  <div class="mb-3">
+  <div class="mb-3 col-8">
     <label for="quantity" class="form-label">Quantity</label>
     <input type="number"  min=0 [(ngModel)]="product.quantity"
       class="form-control" name="quantity" id="sellingprice" required #quantity="ngModel">
@@ -88,17 +90,18 @@
 
 
 
-      <div class="mb-3">
+      <div class="mb-3 col-8">
       <label for="quantity" class="form-label">Picture</label>
      <input type="file"  name="image" required id="file"  [(ngModel)]="product.image"  class="form-control"  #file="ngModel">
      <div [hidden]="file.valid|| file.untouched" class="alert alert-warning">
       Quantity is Required
     </div>
       </div>
+      </div>
 
-  <button [disabled]="productForm.invalid" type="submit" class="btn btn-success">Submit</button>
+  <button [disabled]="productForm.invalid" type="submit" class="btn btn-success offset-2">Submit</button>
 
 </form>
-
+</div>
 
 

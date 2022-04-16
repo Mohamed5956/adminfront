@@ -26,5 +26,10 @@ export class HomeService {
 
    }
 
+   sales()
+   {
+     return this.httpClient.get(`${environment.APIBaseURL}/sales`);
+   }
+
 
 }

@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
   users:any=0;
   clients:any=0;
   orders:any=0;
+  sales:any=0;
   constructor(private homeservice:HomeService) { }
 
   ngOnInit(): void {
@@ -27,10 +28,17 @@ export class HomeComponent implements OnInit {
 
       this.homeservice.orders().subscribe(
         data=>{
-          console.log(data);
+          //console.log(data);
           this.orders=data;
         }
       );
+
+
+      this.homeservice.sales().subscribe(data=>{
+        console.log(data);
+        this.sales=data;
+
+      });
 
   }
 

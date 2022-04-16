@@ -11,15 +11,15 @@
           <div class="mb-3 ">
             <label for="email" class="form-label">Email</label>
             <input type="email" name="email"  formControlName="email" class="form-control"  aria-describedby="emailHelp" required>
-            <div  *ngIf="" class="text-danger">
+            <div  *ngIf="err_email==1" class="text-danger">
               *Email is required
               </div>
 
           </div>
           <div class="mb-3 ">
             <label for="password" class="form-label">Password</label>
-            <input type="text" name="password"  formControlName="password" class="form-control"  aria-describedby="emailHelp" required>
-            <div  *ngIf="" class="text-danger">
+            <input type="text" name="password" id="password"  formControlName="password" class="form-control"  aria-describedby="emailHelp"  required>
+            <div  *ngIf="err_password==1" class="text-danger">
               *password is required
               </div>
               </div>

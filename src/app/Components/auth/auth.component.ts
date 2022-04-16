@@ -13,6 +13,8 @@ export class AuthComponent implements OnInit {
   formGroup :FormGroup=new FormGroup({});
   login_user:any=localStorage.getItem('login');
   vaild_login:number=1;
+  err_password:number=0;
+  err_email:number=0;
 
   constructor(private router:Router , private authservice:AuthService) {
 
@@ -40,6 +42,23 @@ export class AuthComponent implements OnInit {
 
     login()
     {
+
+      if(!this.formGroup.value['email'])
+      {
+        this.err_email=1;
+      }else
+      {
+        this.err_email=0;
+      }
+
+      if(!this.formGroup.value['password'])
+      {
+        this.err_password=1;
+
+      }else
+      this.err_password=0;
+
+
       if(this.formGroup.valid)
       {
         this.authservice.auth_login(this.formGroup.value).subscribe

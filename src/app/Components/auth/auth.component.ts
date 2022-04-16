@@ -51,7 +51,7 @@ export class AuthComponent implements OnInit {
         this.err_email=0;
       }
 
-      if(!this.formGroup.value['password'])
+      if(!this.formGroup.value['password']||this.formGroup.value['password'].length<=5)
       {
         this.err_password=1;
 

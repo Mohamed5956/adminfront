@@ -1,62 +1,56 @@
-<h2> Add Product</h2>
-
-<ng-container *ngIf="add==1">
-  <div class="alert alert-success">
-    added sucessfully
-  </div>
-
-</ng-container>
-
-
-<form #productForm="ngForm"  method="POST" (ngSubmit)="Add()" >
-  <div class="mb-3">
+<div class="container shadow product">
+<h2 class="p-4"> Add Product</h2>
+<form  [formGroup]="formGroup"  method="POST"  (ngSubmit)="Add()"  enctype="multipart/form-data">
+  <div class="row justify-content-center">
+    <div class="mb-3 col-8">
     <label for="name" class="form-label">Name</label>
-    <input type="text" [(ngModel)]="product.name"
-      class="form-control" name="name" id="name" required  #name="ngModel">
-      <div [hidden]="name.valid || name.untouched" class="alert alert-warning">
+    <input type="text"  formControlName="name"
+      class="form-control" name="name" id="name" required  >
+      <div *ngIf="name?.errors?.['required']" class="alert alert-danger">
         Name is required
       </div>
   </div>
 
-  <div class="mb-3">
+  <div class="mb-3 col-8">
     <label for="catSlug" class="form-label">Slug</label>
-    <input type="text" [(ngModel)]="product.slug"
-      class="form-control" name="slug" id="catSlug" required #slug="ngModel">
-      <div [hidden]="slug.valid||slug.untouched" class="alert alert-warning">
-        {{error.slug}}
+    <input type="text"
+      class="form-control" name="slug" id="catSlug" required formControlName="slug">
+      <div *ngIf="slug?.errors?.['required']" class="alert alert-danger">
+        slug is reuired
       </div>
   </div>
 
 
-  <div class="mb-3">
+  <div class="mb-3 col-8">
     <label for="shortdescription" class="form-label">Short Description</label>
-    <textarea name="small_description" class="form-control" [(ngModel)]="product.small_description"
-    id="shortdescription"  required #shortdescription="ngModel"></textarea>
-      <div [hidden]="shortdescription.valid||shortdescription.untouched" class="alert alert-warning">
+    <textarea name="small_description" class="form-control" formControlName="small_description"
+
+    id="shortdescription"  required ></textarea>
+      <div *ngIf="small_description?.errors?.['required']" class="alert alert-danger">
         Short Description is Required
       </div>
   </div>
 
 
 
-  <div class="mb-3">
+  <div class="mb-3 col-8">
     <label for="description" class="form-label">Description</label>
-    <textarea name="description" class="form-control" [(ngModel)]="product.description"
-    id="description"  required #description="ngModel"></textarea>
-      <div [hidden]="description.valid||description.untouched" class="alert alert-warning">
+    <textarea name="description" class="form-control"
+    id="description"  required  formControlName="description"></textarea>
+      <div *ngIf="description?.errors?.['required']" class="alert alert-danger">
         Description is Required
       </div>
   </div>
 
 
-  <div class="mb-3">
-    <label for="category" class="form-label">Category</label>
-    <select class="form-control" name="category" [(ngModel)]="product.category_id" #category="ngModel"  required>
+  <div class="mb-3 col-8">
+    <label for="category_id" class="form-label">Category</label>
+    <select class="form-control" name="category_id"  id="category_id" formControlName="category_id"  required>
       <ng-container *ngFor="let category of categorylist">
         <option [value]="category.id">{{category.name}}</option>
       </ng-container>
     </select>
-      <div [hidden]="category.valid||category.untouched" class="alert alert-warning">
+      <div  *ngIf="category_id?.errors?.['required']" class="alert alert-danger">
         Category is Required
       </div>
   </div>
@@ -64,48 +58,50 @@
 
 
 
-  <div class="mb-3">
+  <div class="mb-3 col-8">
     <label for="originalprice" class="form-label">Original Price</label>
-    <input type="number"  min=0 [(ngModel)]="product.original_price"
-      class="form-control" name="original_price" id="slug" required #originalprice="ngModel">
-      <div [hidden]="originalprice.valid|| originalprice.untouched" class="alert alert-warning">
+    <input type="number"  min=0  formControlName="original_price"
+      class="form-control" name="original_price" id="slug" required >
+      <div  *ngIf="original_price?.errors?.['required']" class="alert alert-danger">
         Original Price is Required
       </div>
   </div>
 
 
-  <div class="mb-3">
+  <div class="mb-3 col-8">
     <label for="sellingprice" class="form-label">Selling Price</label>
-    <input type="number"  min=0 [(ngModel)]="product.selling_price"
-      class="form-control" name="selling_price" id="sellingprice" required #sellingprice="ngModel">
-      <div [hidden]="sellingprice.valid|| sellingprice.untouched" class="alert alert-warning">
+    <input type="number"  min=0  formControlName="selling_price"
+      class="form-control" name="selling_price" id="sellingprice" required >
+      <div  *ngIf="selling_price?.errors?.['required']" class="alert alert-danger">
         Selling Price is Required
       </div>
   </div>
 
 
 
-  <div class="mb-3">
+  <div class="mb-3 col-8">
     <label for="quantity" class="form-label">Quantity</label>
-    <input type="number"  min=0 [(ngModel)]="product.quantity"
-      class="form-control" name="quantity" id="sellingprice" required #quantity="ngModel">
-      <div [hidden]="quantity.valid|| quantity.untouched" class="alert alert-warning">
+    <input type="number"  min=0  formControlName="quantity"
+      class="form-control" name="quantity" id="quantity" required >
+      <div  *ngIf="quantity?.errors?.['required']" class="alert alert-danger">
         Quantity is Required
       </div>
   </div>
 
 
 
-      <div class="mb-3">
-      <label for="quantity" class="form-label">Picture</label>
-     <input type="file"  name="image" required id="file"  [(ngModel)]="product.image"  class="form-control"  #file="ngModel">
-     <div [hidden]="file.valid|| file.untouched" class="alert alert-warning">
-      Quantity is Required
+      <div class="mb-3 col-8">
+      <label for="image" class="form-label">Picture</label>
+     <input type="file"  name="image" required id="file"  class="form-control"  formControlName="image" (change)="onSelectedFile($event)">
+     <div  *ngIf="image?.errors?.['required']" class="alert alert-danger">
+      Image is Required
     </div>
       </div>
 
-  <button [disabled]="productForm.invalid" type="submit" class="btn btn-success">Submit</button>
+      </div>
+  <button  [disabled]="formGroup.invalid"   type="submit" class="btn btn-success offset-2">Submit</button>
 
 </form>
 
 
+</div>

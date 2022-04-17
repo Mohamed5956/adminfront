@@ -19,5 +19,5 @@ export interface Orders {
   status:number,
   created_at:Date,
   order_item?:Orderitem[],
-  productss?:Products[]
+  productss?:Products[],
 }

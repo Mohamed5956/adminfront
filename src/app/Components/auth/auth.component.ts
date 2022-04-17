@@ -69,6 +69,7 @@ export class AuthComponent implements OnInit {
              if(data!=null && data.role!='user'){
               this.vaild_login=1;
              localStorage.setItem('login',data.token);
+             localStorage.setItem("name",data.name);
              this.router.navigate(['/home']);
             }else
             {

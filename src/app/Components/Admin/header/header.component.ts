@@ -9,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  name:any=localStorage.getItem('name');
   constructor(private authservice:AuthService ,private router:Router) { }
 
   ngOnInit(): void {
+    
   }
 
   logout()

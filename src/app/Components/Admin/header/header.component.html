@@ -1,5 +1,5 @@
   <!-- Navbar -->
-  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
+  <nav class="navbar navbar-main  navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
       navbar-scroll="true">
       <div class="container-fluid py-1 px-3">
           <nav aria-label="breadcrumb">
@@ -10,7 +10,11 @@
               <h6 class="font-weight-bolder mb-0">Dashboard</h6>
           </nav>
           <div class="row">
-            <div class="col offset-7">
+            <div class="col ">
+              <button type="button" class="btn">{{name}}</button>
+            </div>
+
+            <div class="col ">
               <button type="button" class="btn" (click)="logout()">Logout</button>
             </div>
           </div>

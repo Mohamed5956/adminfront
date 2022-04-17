@@ -30,7 +30,6 @@ export class EditCategoryComponent implements OnInit {
       name: fb.control('', [Validators.required, Validators.minLength(5)]),
       slug: fb.control('', Validators.required),
       description: fb.control('', Validators.required),
-      // image: fb.control('', Validators.required)
     });
   }
 
@@ -46,22 +45,6 @@ export class EditCategoryComponent implements OnInit {
           });
         });
   }
-
-
-//   updateCategory(){
-//     this.CategoryService.updateCategory(this.Category).subscribe({
-//       next:(res)=>{
-//           Swal.fire(
-//             'The category is updated successfully!',
-//             'click the button',
-//             'success'
-//           );
-//           this.router.navigate(['/categories']);
-//           },
-//         error:(err)=>{console.log(err)}
-//     });
-
-// }
 
 updateCategory() {
   var formData: any = new FormData;

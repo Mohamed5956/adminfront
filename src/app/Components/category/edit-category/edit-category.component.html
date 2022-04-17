@@ -67,14 +67,9 @@
       <small *ngIf="description?.errors?.['required']"> description is required</small>
     </div>
   </div>
-  
 <ng-container *ngIf="Category.image">
   <img src="http://localhost:8000/assets/uploads/category/{{Category.image}}" alt="" width="100px">
 </ng-container>
-<div class="form-control">
-  <input type="file" (change)="onSelectedFile($event)" name="image" id="image" formControlName="image"
-    class="form-control" [(ngModel)]="Category.image">
-</div>
 
   <br>
   <br>

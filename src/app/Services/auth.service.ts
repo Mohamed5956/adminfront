@@ -7,12 +7,12 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService  implements HttpInterceptor{
+export class AuthService  {
 
 
   private httpOptions = {};
   constructor(private httpClient:HttpClient)
-   {
+  {
     this.httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
@@ -30,7 +30,7 @@ export class AuthService  implements HttpInterceptor{
 
     })
 
-       return next.handle(token);
+      return next.handle(token);
 
   }
 
@@ -52,6 +52,6 @@ export class AuthService  implements HttpInterceptor{
     return !!localStorage.getItem('login');
   }
 
-  
+
 
 }

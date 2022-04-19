@@ -2,10 +2,8 @@
 
 
 
-<br>
-
 <!-- here the table -->
-<h3 style="text-align: center;">Categories</h3>
+<!--<h3 style="text-align: center;">Categories</h3>
 <table class="table m-2">
   <thead>
     <tr class="bg-dark text-light">
@@ -39,4 +37,88 @@
 
     </ng-container>
   </tbody>
-</table>
+</table>-->
+
+
+<div class="container-fluid py-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="card my-4">
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+          <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+            <h6 class="text-white text-capitalize ps-3">Categories</h6>
+          </div>
+        </div>
+        <div class="card-body px-0 pb-2">
+          <div class="table-responsive p-0">
+            <table class="table align-items-center mb-0">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No.</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Image
+                  </th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Slug
+                  </th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Description
+                  </th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> Action
+                  </th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let cat of catList  let i=index">
+                <tr>
+                  <td>
+                    <div class="d-flex px-2 py-1">
+                      <div>
+                        {{i+1}}
+                      </div>
+                      </div>
+                  </td>
+                  <td>
+                    <p class="text-xs font-weight-bold mb-0">{{ cat.name | uppercase}}</p>
+
+                  </td>
+                  <td class="align-middle text-center text-sm">
+
+                      <img class="first " Boxshadow="red" src="http://localhost:8000/assets/uploads/category/{{cat.image}}" width="60">
+
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold">{{cat.slug}}</span>
+                  </td>
+
+
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold">{{cat.description}}</span>
+                  </td>
+
+
+
+                  <td class="align-middle text-center">
+
+                    <button [disabled]="" type="button" class="btn btn-success btn-sm rounded-0 "
+                    [routerLink]="['/edit-category',cat.id]">
+                      <i class="fa fa-edit"></i></button>
+
+                        <button type="button " class="btn btn-danger btn-sm rounded-0 mx-2 " (click)="deleteproduct(cat.id)" >
+                          <i class="fa fa-trash"></i>
+                        </button>
+
+                  </td>
+
+                </tr>
+                </ng-container>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

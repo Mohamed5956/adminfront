@@ -1,5 +1,4 @@
-
-<h3 style="text-align: center;">Products</h3>
+<!--<h3 style="text-align: center;">Products</h3>
 <div class="row">
   <div class="col">
   <label for="category" class="form-label">Search:</label>
@@ -51,3 +50,82 @@
     </ng-container>
   </tbody>
 </table>
+-->
+
+
+<div class="container-fluid py-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="card my-4">
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+          <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+            <h6 class="text-white text-capitalize ps-3">Products</h6>
+          </div>
+        </div>
+        <div class="card-body px-0 pb-2">
+          <div class="table-responsive p-0">
+            <table class="table align-items-center mb-0">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No.</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Image
+                  </th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Small Description
+                  </th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> Action
+                  </th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let product of products  let i=index">
+                <tr>
+                  <td>
+                    <div class="d-flex px-2 py-1">
+                      <div>
+                        {{i+1}}
+                      </div>
+                      </div>
+                  </td>
+                  <td>
+                    <p class="text-xs font-weight-bold mb-0">{{ product.name | uppercase}}</p>
+
+                  </td>
+                  <td class="align-middle text-center text-sm">
+
+                      <img class="first " Boxshadow="red" src="http://localhost:8000/assets/uploads/{{product.image}}" width="60">
+
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold">{{product.small_description}}</span>
+                  </td>
+
+                  <td class="align-middle text-center">
+
+                    <button [disabled]="" type="button" class="btn btn-success btn-sm rounded-0 "
+                    [routerLink]="['/products/edit',product.id]">
+                      <i class="fa fa-edit"></i></button>
+
+                        <button type="button " class="btn btn-danger btn-sm rounded-0 mx-2 " (click)="deleteproduct(product.id)" >
+                          <i class="fa fa-trash"></i>
+                        </button>
+
+                  </td>
+
+
+                </tr>
+
+                </ng-container>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+

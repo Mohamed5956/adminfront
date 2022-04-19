@@ -67,6 +67,17 @@
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
+                  <th>
+                  <label for="category" class="form-label">Search:</label>
+                 <select [(ngModel)]="categoryId"  class="dropdown" (ngModelChange)="getproducts()">
+                      <option [value]="0">All</option>
+                      <option  *ngFor="let category of categories" [value]="category.id">
+                          {{category.name}}
+                      </option>
+                  </select>
+                  </th>
+                </tr>
+                <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No.</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Image

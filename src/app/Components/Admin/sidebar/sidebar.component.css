@@ -30,3 +30,10 @@ body {
 a{
   text-decoration: none;
 }
+
+.navbar-vertical .navbar-nav>.nav-item .nav-link.active
+{
+  background-color: #D81B60 ;
+}
+
+

@@ -49,7 +49,7 @@ export class AuthService  {
 
   loggedIn()
   {
-    if(localStorage.getItem('login')&&localStorage.getItem('role')!='user')
+    if(localStorage.getItem('login')&&localStorage.getItem('role')&&localStorage.getItem('role')!='user')
       return true;
 
       return false;

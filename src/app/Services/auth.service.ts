@@ -49,8 +49,20 @@ export class AuthService  {
 
   loggedIn()
   {
-    return !!localStorage.getItem('login');
+    if(localStorage.getItem('login')&&localStorage.getItem('role')!='user')
+      return true;
+
+      return false;
   }
+
+   admin()
+   {
+    if(localStorage.getItem('role')=='admin')
+      return true;
+
+      return false;
+
+   }
 
 
 

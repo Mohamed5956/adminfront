@@ -1,6 +1,6 @@
 
 import { NgModule, Component } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { HomeComponent } from './Components/Admin/home/home.component';
 import { AuthComponent } from './Components/auth/auth.component';
 import { AddCategoryComponent } from './Components/category/add-category/add-category.component';
@@ -17,6 +17,7 @@ import { AllProductsComponent } from './Components/products/all-products/all-pro
 import { EditProductComponent } from './Components/products/edit-product/edit-product.component';
 import { ViewUserComponent } from './Components/users/view-user/view-user.component';
 import { AuthGuard } from './auth.guard';
+import { RoleGuard } from './role.guard';
 
 const routes: Routes = [
   {path:'',component:LayoutComponent,
@@ -34,8 +35,8 @@ const routes: Routes = [
   {path:'orders', component:OrdersComponent,canActivate:[AuthGuard]},
   {path:'orders/:oid',component:ViewOrderComponent,canActivate:[AuthGuard]},
   {path:'order-history',component:OrderHistoryComponent,canActivate:[AuthGuard]},
-  {path:'usersAdmin' , component:UsersComponent,canActivate:[AuthGuard]},
-  {path:'view-user/:id',component:ViewUserComponent,canActivate:[AuthGuard]},
+  {path:'usersAdmin' , component:UsersComponent,canActivate:[AuthGuard,RoleGuard]},
+  {path:'view-user/:id',component:ViewUserComponent,canActivate:[AuthGuard,RoleGuard]},
   ]
   },
   {path:'login', component:AuthComponent},

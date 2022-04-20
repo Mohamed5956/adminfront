@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   constructor(private authservice:AuthService ,private router:Router) { }
 
   ngOnInit(): void {
-    
+
   }
 
   logout()
@@ -24,6 +24,8 @@ export class HeaderComponent implements OnInit {
      next:()=>{
 
       localStorage.removeItem("login");
+      localStorage.removeItem("role");
+      localStorage.removeItem("name");
       this.router.navigate(['/login']);
 
      }

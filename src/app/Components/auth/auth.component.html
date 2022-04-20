@@ -66,7 +66,7 @@
               <form role="form" class="text-start"  method="POST" [formGroup]="formGroup" (ngSubmit)="login()">
                 <div class="input-group input-group-outline my-3">
                   <label class="form-label" >Email</label>
-                  <input type="email"   name="email" class="form-control" formControlName="email" required>
+                  <input type="email"  name="email" class="form-control" formControlName="email" required>
                 </div>
                 <div  *ngIf="err_email==1" class="text-danger mb-2">
                   *Email is required
@@ -79,6 +79,13 @@
                 <div  *ngIf="err_password==1" class="text-danger">
                   *password is required , enter more than 5 character.
                   </div>
+
+                  <div class="input-group input-group-outline mb-3">
+
+                   <a href="#">Forget Password ?</a>
+
+                  </div>
+
                 <div class="text-center">
                   <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign in</button>
                 </div>

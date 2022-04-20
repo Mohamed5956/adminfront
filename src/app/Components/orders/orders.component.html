@@ -60,7 +60,7 @@
             </div>
             <div class="card-body px-0 pb-2">
               <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
+                <table class="table text-center mb-0">
                   <thead>
                     <tr>
                       <th colspan="6">
@@ -85,8 +85,8 @@
                     <ng-container *ngFor="let item of orderList">
                     <tr>
 
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">{{item.created_at | date}}</p>
+                      <td class="align-middle text-center text-sm">
+                        <p class="text-xs font-weight-bold">{{item.created_at | date}}</p>
 
                       </td>
                       <td class="align-middle text-center text-sm">
@@ -106,7 +106,8 @@
 
 
                           <ng-container *ngIf="item.status == 0">
-                            <td class="align-middle text-center">Pending</td>
+                            <td class="align-middle text-center">
+                              <span class="badge badge-sm bg-gradient-warning">Pending</span></td>
                           </ng-container>
 
 
@@ -114,7 +115,7 @@
 
                       <td class="align-middle text-center">
 
-                            <button type="button " class="btn btn-danger btn-sm rounded-0 mx-2 " [routerLink]="['/orders',item.id]" >
+                            <button type="button " class="btn  btn-sm rounded-0 text-white " [routerLink]="['/orders',item.id]" style="background-color:#007bff;">
                               <i class="fa fa-eye"></i>
                             </button>
 

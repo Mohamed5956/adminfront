@@ -51,11 +51,11 @@
         </div>
         <div class="card-body px-0 pb-2">
           <div class="table-responsive p-0">
-            <table class="table align-items-center mb-0">
+            <table class="table text-center mb-0">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No.</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">Name</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Image
                   </th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Slug
@@ -70,14 +70,12 @@
               <tbody>
                 <ng-container *ngFor="let cat of catList  let i=index">
                 <tr>
-                  <td>
-                    <div class="d-flex px-2 py-1">
-                      <div>
+                  <td class="align-middle text-center">
+                    <div class="text-xs font-weight-bold mb-0">
                         {{i+1}}
                       </div>
-                      </div>
                   </td>
-                  <td>
+                  <td class="align-middle text-center">
                     <p class="text-xs font-weight-bold mb-0">{{ cat.name | uppercase}}</p>
 
                   </td>

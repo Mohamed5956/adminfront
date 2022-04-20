@@ -1,5 +1,5 @@
 
-    <div class="card">
+   <!--- <div class="card">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -43,4 +43,78 @@
                 </div>
             </div>
         </div>
+    </div>-->
+
+
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Order History</h6>
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive p-0">
+                <table class="table text-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Order Date</th>
+                      <th class="text-uppercase text-secondary  text-xxs font-weight-bolder opacity-7 ps-2">Tracking Number</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Total Price
+                      </th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status
+                      </th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> Action
+                      </th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <ng-container *ngFor="let item of orderList">
+                    <tr>
+                      <td class="align-middle text-center">
+                        <p class="text-xs font-weight-bold mb-0">{{item.created_at | date}}</p>
+                      </td>
+                      <td class="align-middle text-center text-sm">
+                        {{item.tracking_no}}
+                      </td>
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold">{{item.total_price}}</span>
+                      </td>
+
+
+                      <td class="align-middle text-center">
+                        <ng-container *ngIf="item.status == 0">
+                        <span class="text-secondary text-xs font-weight-bold">Pending</span>
+                        </ng-container>
+
+                         <ng-container *ngIf="item.status == 1">
+                          <span class=" text-xs font-weight-bold badge badge-sm bg-gradient-success">Completed</span>
+                          </ng-container>
+
+                      </td>
+
+
+
+
+                      <td class="align-middle text-center">
+
+                        <a [routerLink]="['/orders',item.id]" class="btn  btn-sm rounded-0 text-white" style="background-color:#007bff;"><i class="fa fa-eye"></i></a>
+
+                      </td>
+
+                    </tr>
+                    </ng-container>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     </div>

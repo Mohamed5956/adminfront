@@ -70,6 +70,7 @@ export class AuthComponent implements OnInit {
               this.vaild_login=1;
              localStorage.setItem('login',data.token);
              localStorage.setItem("name",data.name);
+             localStorage.setItem("role",data.role);
              this.router.navigate(['/home']);
             }else
             {

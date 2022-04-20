@@ -52,7 +52,7 @@
         </div>
         <div class="card-body px-0 pb-2">
           <div class="table-responsive p-0">
-            <table class="table align-items-center mb-0">
+            <table class="table text-center mb-0">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
@@ -68,7 +68,7 @@
               <tbody>
                 <ng-container *ngFor="let item of UsersList">
                 <tr>
-                  <td>
+                  <td class="align-middle text-center">
                     <p class="text-xs font-weight-bold mb-0">{{item.name }}</p>
 
                   </td>
@@ -78,7 +78,19 @@
 
 
                   <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold">{{item.role}}</span>
+                    <ng-container *ngIf="item.role=='admin'">
+                      <span class=" text-xs font-weight-bold badge badge-sm bg-gradient-success">{{item.role}}</span>
+                    </ng-container>
+
+                    <ng-container *ngIf="item.role=='user'">
+                      <span class=" text-xs font-weight-bold badge badge-sm bg-gradient-primary">{{item.role}}</span>
+                      </ng-container>
+
+                      <ng-container *ngIf="item.role=='manager'">
+                        <span class=" text-xs font-weight-bold badge badge-sm bg-gradient-warning">{{item.role}}</span>
+                      </ng-container>
+
+
                   </td>
 
 

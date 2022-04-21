@@ -18,6 +18,7 @@ import { EditProductComponent } from './Components/products/edit-product/edit-pr
 import { ViewUserComponent } from './Components/users/view-user/view-user.component';
 import { AuthGuard } from './auth.guard';
 import { RoleGuard } from './role.guard';
+import { NewpasswordComponent } from './Components/newpassword/newpassword.component';
 
 const routes: Routes = [
   {path:'',component:LayoutComponent,
@@ -40,6 +41,7 @@ const routes: Routes = [
   ]
   },
   {path:'login', component:AuthComponent},
+  {path:'password/reset', component:NewpasswordComponent},
   {path:'**', component:NotFoundComponent}
 ];
 

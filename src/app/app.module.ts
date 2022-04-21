@@ -24,6 +24,7 @@ import { EditProductComponent } from './Components/products/edit-product/edit-pr
 import { AuthComponent } from './Components/auth/auth.component';
 import { AuthService } from './Services/auth.service';
 import { ViewUserComponent } from './Components/users/view-user/view-user.component';
+import { NewpasswordComponent } from './Components/newpassword/newpassword.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { ViewUserComponent } from './Components/users/view-user/view-user.compon
     EditProductComponent,
     AuthComponent,
     ViewUserComponent,
+    NewpasswordComponent,
   ],
   imports: [
     BrowserModule,

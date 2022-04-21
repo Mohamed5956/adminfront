@@ -46,6 +46,18 @@ export class AuthService  {
   }
 
 
+    sendemail(data:any):Observable<any>
+    {
+      return this.httpClient.post(`${environment.APIBaseURL}/resetpassword`,data);
+    }
+
+    updatepassword(data:any):Observable<any>
+    {
+      console.log(data);
+      return this.httpClient.post(`${environment.APIBaseURL}/updatepassword`,data);
+
+    }
+
 
   loggedIn()
   {

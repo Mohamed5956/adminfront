@@ -113,10 +113,10 @@
                   <td class="align-middle text-center">
 
                     <button [disabled]="" type="button" class="btn btn-success btn-sm rounded-0 "
-                    [routerLink]="['/products/edit',product.id]">
+                    [routerLink]="['/products/edit',product.id]" title="Edit">
                       <i class="fa fa-edit"></i></button>
 
-                        <button type="button " class="btn btn-danger btn-sm rounded-0 mx-2 " (click)="deleteproduct(product.id)" >
+                        <button type="button " class="btn btn-danger btn-sm rounded-0 mx-2 " (click)="deleteproduct(product.id)" title="Delete">
                           <i class="fa fa-trash"></i>
                         </button>
 

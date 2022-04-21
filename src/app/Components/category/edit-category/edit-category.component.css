@@ -14,14 +14,11 @@ input,textarea{
 
 .product
 {
-  background-color: rgb(126, 126, 164);
+  background-color: white;
   border-radius: 25px;
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
   -ms-border-radius: 25px;
   -o-border-radius: 25px;
 }
-label
-{
-  color:white;
-}
+

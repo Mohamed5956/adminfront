@@ -14,6 +14,8 @@ export class NewpasswordComponent implements OnInit {
   passwordGroup:FormGroup=new FormGroup({});
   showconfirmpassword:number=0;
   newpassord:any=0;
+  err_password:any=0;
+  err_email:any='';
 
   constructor(private authservice:AuthService,private router:Router) { }
 
@@ -44,8 +46,8 @@ export class NewpasswordComponent implements OnInit {
     if(this.formGroup.valid)
     {
 
-      this.authservice.sendemail(this.formGroup.value).subscribe(data=>{
-        console.log(data);
+      this.authservice.sendemail(this.formGroup.value).subscribe({
+        next:(data)=>{
         if(data!='error')
         {
           this.newpassord=data;
@@ -54,11 +56,21 @@ export class NewpasswordComponent implements OnInit {
 
         }else
         {
+          this.err_email="Invaild Email";
 
-        }
+
+         }
+         },
+         error:()=>{
+          this.err_email="Invaild Email";
+
+         }
 
       }
         );
+    }else
+    {
+      this.err_email='*Email is required.';
     }
   }
 
@@ -83,10 +95,15 @@ export class NewpasswordComponent implements OnInit {
         }
         );
 
+     }else
+     {
+       this.err_password="Invaild Password";
      }
 
-    }
-    
+    }else
+    this.err_password="*Confirm Password is required.";
+
+
 
   }
 

@@ -11,7 +11,7 @@ import { UserService } from 'src/app/Services/user.service';
 })
 export class UsersComponent implements OnInit {
   UsersList:Users[] = [];
-  constructor(private router:Router,
+    constructor(private router:Router,
     private httpClient:HttpClient,
     private UsersService:UserService) { }
 
@@ -21,5 +21,5 @@ export class UsersComponent implements OnInit {
         console.log(e);
       });
     }
-    
+
 }

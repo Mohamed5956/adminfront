@@ -98,10 +98,10 @@
                   <td class="align-middle text-center">
 
                     <button [disabled]="" type="button" class="btn btn-success btn-sm rounded-0 "
-                    [routerLink]="['/edit-category',cat.id]">
+                    [routerLink]="['/edit-category',cat.id]" title="Edit">
                       <i class="fa fa-edit"></i></button>
 
-                        <button type="button " class="btn btn-danger btn-sm rounded-0 mx-2 " (click)="deleteproduct(cat.id)" >
+                        <button type="button " class="btn btn-danger btn-sm rounded-0 mx-2 " (click)="deleteproduct(cat.id)" title="Delete">
                           <i class="fa fa-trash"></i>
                         </button>
 

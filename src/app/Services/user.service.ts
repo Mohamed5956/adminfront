@@ -35,7 +35,8 @@ export class UserService {
 
 
   getDataUser(UserID:number):Observable<Users>{
-    return this.httpClient.get <Users>(`${environment.APIBaseURL}/users/${UserID}`)
+    //return this.httpClient.get <Users>(`${environment.APIBaseURL}/users/${UserID}`)
+    return this.httpClient.get <Users>(`${environment.APIBaseURL}/showuser/${UserID}`);
 
   }
 

@@ -90,7 +90,7 @@
       </div>
       <div class="card-body px-0 pb-2">
         <div class="table-responsive">
-          <table class="table align-items-center mb-0">
+          <table class="table text-center mb-0">
             <thead>
               <tr>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
@@ -101,25 +101,28 @@
               </tr>
             </thead>
             <tbody>
+              <ng-container *ngFor="let r of rate ">
               <tr>
                 <td>
 
                     <div class="d-flex flex-column justify-content-center">
-                      <h6 class="mb-0 text-sm">Product1</h6>
+                      <h6 class="mb-0 text-sm">{{r.name}}</h6>
                     </div>
 
                 </td>
                 <td>
 
                     <div class="d-flex flex-column justify-content-center">
-                      <h6 class="mb-0 text-sm">image</h6>
+                      <h6 class="mb-0 text-sm">
+                        <img class="first " Boxshadow="red" src="http://localhost:8000/assets/uploads/{{r.image}}" width="60">
+                      </h6>
 
                      </div>
                 </td>
                 <td >
 
                     <div class="d-flex flex-column justify-content-center ">
-                      <h6 class="mb-0 text-sm">Product1</h6>
+                      <h6 class="mb-0 text-sm">{{r.description}}</h6>
                     </div>
 
                 </td>
@@ -127,17 +130,18 @@
                   <div class="progress-wrapper w-75 mx-auto">
                     <div class="progress-info">
                       <div class="progress-percentage">
-                        <span class="text-xs font-weight-bold">60%</span>
+                        <span class="text-xs font-weight-bold">{{r.rate}}</span>
                       </div>
                     </div>
                     <div class="progress">
-                      <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60"
+                      <div class="progress-bar bg-gradient-info w-{{r.rate}}" role="progressbar" aria-valuenow="r.rate"
                         aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </div>
                 </td>
               </tr>
 
+              </ng-container>
             </tbody>
           </table>
           </div>

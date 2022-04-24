@@ -56,13 +56,13 @@ export class NewpasswordComponent implements OnInit {
 
         }else
         {
-          this.err_email="Invaild Email";
+          this.err_email="*Invaild Email";
 
 
          }
          },
          error:()=>{
-          this.err_email="Invaild Email";
+          this.err_email="*Invaild Email";
 
          }
 
@@ -97,7 +97,7 @@ export class NewpasswordComponent implements OnInit {
 
      }else
      {
-       this.err_password="Invaild Password";
+       this.err_password="*Invaild Password";
      }
 
     }else

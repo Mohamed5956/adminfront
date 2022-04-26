@@ -1,84 +1,39 @@
-<!-- <h1>Edit Category</h1>
-<form #Form="ngForm" (ngSubmit)="updateCategory()">
-  <fieldset>
-    <div class="form-group">
-      <label>Name</label>
-      <input type="text" class="form-control" #categoryName="ngModel" [(ngModel)]="Category.name" required
-        [ngModelOptions]="{standalone:true}">
-        <div [hidden]="categoryName.valid || categoryName.untouched" class="alert alert-warning">
-          Name is Required
-        </div>
-    </div>
-
-    <div class="form-group">
-    <label>Slug</label>
-    <input type="text" class="form-control" #categorySlug="ngModel" [(ngModel)]="Category.slug" required
-      [ngModelOptions]="{standalone:true}">
-      <div [hidden]="categorySlug.valid || categorySlug.untouched" class="alert alert-warning">
-        Slug is Required
-      </div>
-  </div>
-
-
-  <div class="mb-3">
-    <label for="catDescription" class="form-label">Description</label>
-    <textarea name="catDescription" class="form-control" [(ngModel)]="Category.description"
-    id=""  required #catDescription="ngModel"></textarea>
-      <div [hidden]="catDescription.valid||catDescription.untouched" class="alert alert-warning">
-        Description is Required
-      </div>
-  </div>
-
-  </fieldset>
-
-  <br>
-  <input [disabled]="Form.invalid" type="submit" value="submit" class="btn btn-primary" >
-  <br> <br>
-</form>
-<br> -->
-
-
 <div class="container shadow product">
-<h1> Edit Category</h1>
+    <h1> Edit Category</h1>
 
-<form [formGroup]="CategoryFormGroup" (ngSubmit)="updateCategory()" enctype="multipart/form-data">
-  <div class="mb-3">
-    <label for="fullName" class="form-label">Name</label>
-    <input type="text" [(ngModel)]="Category.name" formControlName="name" class="form-control" name="name" id="name"
-      [class.is-valid]="name?.valid" [class.is-invalid]="name?.invalid">
-    <div class="alert alert-warning" [hidden]="name?.valid || name?.untouched">
-      <small *ngIf="name?.errors?.['required']"> name is required</small>
-      <small *ngIf="name?.errors?.['minlength']"> name must be more than 5 charachters</small>
-    </div>
-  </div>
+    <form [formGroup]="CategoryFormGroup" (ngSubmit)="updateCategory()" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="fullName" class="form-label">Name</label>
+            <input type="text" [(ngModel)]="Category.name" formControlName="name" class="form-control" name="name" id="name" [class.is-valid]="name?.valid" [class.is-invalid]="name?.invalid">
+            <div class="text-danger" [hidden]="name?.valid || name?.untouched">
+                <small *ngIf="name?.errors?.['required']"> name is required</small>
+                <small *ngIf="name?.errors?.['minlength']"> name must be more than 5 charachters</small>
+            </div>
+        </div>
 
-  <div class="mb-3">
-    <label for="slug" class="form-label">slug</label>
-    <input type="text" [(ngModel)]="Category.slug" formControlName="slug" class="form-control" name="slug" id="slug"
-      [class.is-valid]="slug?.valid" [class.is-invalid]="name?.invalid">
-    <div class="alert alert-warning" [hidden]="slug?.valid || slug?.untouched">
-      <small *ngIf="slug?.errors?.['required']"> slug is required</small>
-    </div>
-  </div>
+        <div class="mb-3">
+            <label for="slug" class="form-label">slug</label>
+            <input type="text" [(ngModel)]="Category.slug" formControlName="slug" class="form-control" name="slug" id="slug" [class.is-valid]="slug?.valid" [class.is-invalid]="name?.invalid">
+            <div class="text-danger" [hidden]="slug?.valid || slug?.untouched">
+                <small *ngIf="slug?.errors?.['required']"> slug is required</small>
+            </div>
+        </div>
 
-  <div class="mb-3">
-    <label for="description" class="form-label">description</label>
-    <textarea [(ngModel)]="Category.description" formControlName="description" class="form-control" name="description"
-      id="description" [class.is-valid]="description?.valid" [class.is-invalid]="description?.invalid"></textarea>
-    <div class="alert alert-warning" [hidden]="description?.valid || description?.untouched">
-      <small *ngIf="description?.errors?.['required']"> description is required</small>
-    </div>
-  </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">description</label>
+            <textarea [(ngModel)]="Category.description" formControlName="description" class="form-control" name="description" id="description" [class.is-valid]="description?.valid" [class.is-invalid]="description?.invalid"></textarea>
+            <div class="text-danger" [hidden]="description?.valid || description?.untouched">
+                <small *ngIf="description?.errors?.['required']"> description is required</small>
+            </div>
+        </div>
 
-<ng-container *ngIf="Category.image">
-  <img src="http://localhost:8000/assets/uploads/category/{{Category.image}}" alt="" width="100px">
-</ng-container>
+        <ng-container *ngIf="Category.image">
+            <img src="http://localhost:8000/assets/uploads/category/{{Category.image}}" alt="" width="100px">
+        </ng-container>
 
-  <br>
-  <br>
-  <button [disabled]="CategoryFormGroup.invalid" type="submit" class="btn btn-success">Submit</button>
+        <br>
+        <br>
+        <button [disabled]="CategoryFormGroup.invalid" type="submit" class="btn btn-success">Submit</button>
 
-</form>
+    </form>
 </div>
-
-

@@ -1,118 +1,74 @@
-
-    <!--<div class="card my-5">
-      <div class="container">
-          <div class="row">
-              <div class="col-md-12">
-                  <div class="card my-5">
-                      <div class="card-header">
-                          <h4>Users
-                          </h4>
-                      </div>
-                      <div class="card-body">
-                          <table class="table table-bordered">
-                              <thead>
-                                  <tr>
-                                      <th>User Name</th>
-                                      <th>User Email</th>
-                                      <th>Role</th>
-                                      <th>Action</th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <ng-container *ngFor="let item of UsersList">
-                                      <tr>
-                                          <td>{{item.name }}</td>
-                                          <td>{{item.email}}</td>
-                                          <td>{{item.role}}</td>
-                                          <td>
-                                            <a class="btn btn-primary" [routerLink]="['/view-user',item.id]" >View </a>
-                                          </td>
-                                      </tr>
-                                    </ng-container>
-                              </tbody>
-                          </table>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
--->
-
-
-
 <div class="container-fluid py-4">
-  <div class="row">
-    <div class="col-12">
-      <div class="card my-4">
-        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-          <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-            <h6 class="text-white text-capitalize ps-3">Users</h6>
-          </div>
-        </div>
-        <div class="card-body px-0 pb-2">
-          <div class="table-responsive p-0">
-            <table class="table text-center mb-0">
-              <thead>
-                <tr>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email
-                  </th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Role
-                  </th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> Action
-                  </th>
+    <div class="row">
+        <div class="col-12">
+            <div class="card my-4">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                    <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                        <h6 class="text-white text-capitalize ps-3">Users</h6>
+                    </div>
+                </div>
+                <div class="card-body px-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table text-center mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Role
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> Action
+                                    </th>
 
-                </tr>
-              </thead>
-              <tbody>
-                <ng-container *ngFor="let item of UsersList">
-                <tr>
-                  <td class="align-middle text-center">
-                    <p class="text-xs font-weight-bold mb-0">{{item.name }}</p>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <ng-container *ngFor="let item of UsersList">
+                                    <tr>
+                                        <td class="align-middle text-center">
+                                            <p class="text-xs font-weight-bold mb-0">{{item.name }}</p>
 
-                  </td>
-                  <td class="align-middle text-center">
-                    <span class="text-secondary text-xs font-weight-bold">{{item.email}}</span>
-                  </td>
-
-
-                  <td class="align-middle text-center">
-                    <ng-container *ngIf="item.role=='admin'">
-                      <span class=" text-xs font-weight-bold badge badge-sm bg-gradient-success">{{item.role}}</span>
-                    </ng-container>
-
-                    <ng-container *ngIf="item.role=='user'">
-                      <span class=" text-xs font-weight-bold badge badge-sm bg-gradient-primary">{{item.role}}</span>
-                      </ng-container>
-
-                      <ng-container *ngIf="item.role=='manager'">
-                        <span class=" text-xs font-weight-bold badge badge-sm bg-gradient-warning">{{item.role}}</span>
-                      </ng-container>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <span class="text-secondary text-xs font-weight-bold">{{item.email}}</span>
+                                        </td>
 
 
-                  </td>
+                                        <td class="align-middle text-center">
+                                            <ng-container *ngIf="item.role=='admin'">
+                                                <span class=" text-xs font-weight-bold badge badge-sm bg-gradient-success">{{item.role}}</span>
+                                            </ng-container>
+
+                                            <ng-container *ngIf="item.role=='user'">
+                                                <span class=" text-xs font-weight-bold badge badge-sm bg-gradient-primary">{{item.role}}</span>
+                                            </ng-container>
+
+                                            <ng-container *ngIf="item.role=='manager'">
+                                                <span class=" text-xs font-weight-bold badge badge-sm bg-gradient-warning">{{item.role}}</span>
+                                            </ng-container>
+
+
+                                        </td>
 
 
 
-                  <td class="align-middle text-center">
+                                        <td class="align-middle text-center">
 
-                    <button [disabled]="" type="button" class="btn  btn-sm rounded-0 text-white" style="background-color:#007bff;"
-                    [routerLink]="['/view-user',item.id]" title="View">
+                                            <button [disabled]="" type="button" class="btn  btn-sm rounded-0 text-white" style="background-color:#007bff;" [routerLink]="['/view-user',item.id]" title="View">
                     <i class="fa fa-eye"></i></button>
 
-                  </td>
+                                        </td>
 
-                </tr>
-                </ng-container>
+                                    </tr>
+                                </ng-container>
 
-              </tbody>
-            </table>
-          </div>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 
 
 </div>

@@ -1,70 +1,69 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header">
-          <h3>User Details</h3>
-          <a [routerLink]="['/usersAdmin']" class="btn btn-primary btn-sm float-end">Back</a>
-          <hr>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            {{DataUser.role}}
-            <form #Form="ngForm" (ngSubmit)="updateUser()" method="POST">
-              <label for="">User role</label>
-              <select class="form-select" name="role" [(ngModel)]="DataUser.role" [ngModelOptions]="{standalone:true}">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3>User Details</h3>
+                    <a [routerLink]="['/usersAdmin']" class="btn btn-primary btn-sm float-end">Back</a>
+                    <hr>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <form #Form="ngForm" (ngSubmit)="updateUser()" method="POST">
+                            <label for="">User role</label>
+                            <select class="form-select" name="role" [(ngModel)]="DataUser.role" [ngModelOptions]="{standalone:true}">
                 <!-- <select name="role" id="" class="form-select" [(ngModel)]="User.user?.role" > -->
                 <option [selected]="DataUser.role == 'admin' " value="admin">Admin</option>
                 <option [selected]="DataUser.role == 'manager' " value="manager">Manager</option>
                 <option [selected]="DataUser.role == 'user' " value="user">User</option>
               </select>
-              <button type="submit" class="btn btn-primary mt-3" value="Update">Update</button>
-            </form>
+                            <button type="submit" class="btn btn-primary mt-3" value="Update">Update</button>
+                        </form>
 
-            <div class="col-md-4">
-              <label for="">First Name</label>
-              <div class="p-2 border"> {{ User.fname}} </div>
-            </div>
+                        <div class="col-md-4">
+                            <label for="">First Name</label>
+                            <div class="p-2 border"> {{ User.fname}} </div>
+                        </div>
 
-            <div class="col-md-4">
-              <label for="">Last Name</label>
-              <div class="p-2 border"> {{ User.lname}} </div>
-            </div>
+                        <div class="col-md-4">
+                            <label for="">Last Name</label>
+                            <div class="p-2 border"> {{ User.lname}} </div>
+                        </div>
 
-            <div class="col-md-4">
-              <label for="">Email</label>
-              <div class="p-2 border"> {{ User.email}} </div>
-            </div>
+                        <div class="col-md-4">
+                            <label for="">Email</label>
+                            <div class="p-2 border"> {{ User.email}} </div>
+                        </div>
 
-            <div class="col-md-4">
-              <label for="">Phone</label>
-              <div class="p-2 border"> {{ User.phone }} </div>
-            </div>
-            <div class="col-md-4">
-              <label for="">Address 1</label>
-              <div class="p-2 border"> {{ User.address1 }} </div>
-            </div>
-            <div class="col-md-4">
-              <label for="">Address 2</label>
-              <div class="p-2 border"> {{ User.address2 }} </div>
-            </div>
-            <div class="col-md-4">
-              <label for="">City</label>
-              <div class="p-2 border"> {{ User.city }} </div>
-            </div>
-            <div class="col-md-4">
-              <label for="">State</label>
-              <div class="p-2 border"> {{ User.state }} </div>
-            </div>
-            <div class="col-md-4">
-              <label for="">Zip Code</label>
-              <div class="p-2 border"> {{ User.pincode }} </div>
-            </div>
+                        <div class="col-md-4">
+                            <label for="">Phone</label>
+                            <div class="p-2 border"> {{ User.phone }} </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">Address 1</label>
+                            <div class="p-2 border"> {{ User.address1 }} </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">Address 2</label>
+                            <div class="p-2 border"> {{ User.address2 }} </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">City</label>
+                            <div class="p-2 border"> {{ User.city }} </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">State</label>
+                            <div class="p-2 border"> {{ User.state }} </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">Zip Code</label>
+                            <div class="p-2 border"> {{ User.pincode }} </div>
+                        </div>
 
-          </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-  </div>
+    </div>
 </div>

@@ -37,16 +37,12 @@ export class AllProductsComponent implements OnInit{
 
     getproducts()
     {
-
     this.productservice.getproducstbycategoryID(this.categoryId).subscribe(products=>
       {
         this.products=products;
         console.log(this.products);
-
     });
-
     }
-
 
 
       deleteproduct(productId:number)
